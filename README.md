@@ -28,7 +28,7 @@ A decoupled version of Notejam project with CI/CD and IaC.
 
 **Technical Overview**
 
-![TechnicalView](https://github.com/idomoroschenov/notejam/blob/7e562e00d38668a8ff18ba6217419778f6212c36/notejam-diagrams/TechnicalView.png)
+![TechnicalView](https://github.com/idomoroschenov/notejam/blob/44bca2da325e7048f461000f01cb5aaf8cb153e9/notejam-diagrams/TechnicalView.png)
 
 
 **Deployment Overview**
