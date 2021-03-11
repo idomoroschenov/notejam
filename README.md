@@ -32,4 +32,4 @@ A decoupled version of Notejam project with CI/CD and IaC.
 
 
 **Deployment Overview**
-![DeploymenView](https://github.com/idomoroschenov/notejam/blob/23557179cb1d5486c935b7f10a4ed6b23fd20115/notejam-diagrams/DeploymentView.png)
+![DeploymenView](https://github.com/idomoroschenov/notejam/blob/05ba46ea69567a7bdec7ff4456a67a952294fa7c/notejam-diagrams/DeploymentView.png)
