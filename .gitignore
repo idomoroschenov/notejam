@@ -1,0 +1,4 @@
+notejam-cicd/.*
+notejam-cicd/README*
+notejam-cicd/*context*
+notejam-code/.*

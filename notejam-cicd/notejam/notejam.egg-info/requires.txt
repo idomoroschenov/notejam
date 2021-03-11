@@ -1,0 +1,11 @@
+aws-cdk.core>=1.92.0
+aws-cdk.aws-codepipeline
+aws-cdk.aws-codecommit
+aws-cdk.aws-codebuild
+aws-cdk.aws-logs
+aws-cdk.aws-rds
+aws-cdk.aws-ec2
+aws-cdk.aws-ecr
+aws-cdk.aws-iam
+aws-cdk.aws-ecs
+aws-cdk.aws-codepipeline-actions
