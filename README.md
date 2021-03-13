@@ -1,5 +1,4 @@
 # Notejam
-## Decoupled Architecture
 
 A decoupled version of Notejam project with CI/CD and IaC.
 
@@ -41,6 +40,11 @@ A decoupled version of Notejam project with CI/CD and IaC.
 
 ![TechnicalView](https://github.com/idomoroschenov/notejam/blob/44bca2da325e7048f461000f01cb5aaf8cb153e9/notejam-diagrams/TechnicalView.png)
 
+The architecture above is the first iteration which covers all business requirements. 
 
 **Deployment Overview**
 ![DeploymenView](https://github.com/idomoroschenov/notejam/blob/05ba46ea69567a7bdec7ff4456a67a952294fa7c/notejam-diagrams/DeploymentView.png)
+
+
+## Further recommendations
+
