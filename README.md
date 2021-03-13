@@ -35,6 +35,10 @@ A decoupled version of Notejam project with CI/CD and IaC.
 - Application can be deployed in several modes that would run independently. It is possible to include per-stage rollout of the service in the development pipeline
 - All logs are exported to the CloudWatch log groups and are available for the analysis
 
+## Design Assumptions
+
+![DesignAssumptions](https://github.com/idomoroschenov/notejam/blob/d6c100d6ea74abc7d91dffc617f7eee70d0f368a/notejam-diagrams/Architectural%20Decisions.png)
+
 ## Implemented Architecture
 
 **Technical Overview**
