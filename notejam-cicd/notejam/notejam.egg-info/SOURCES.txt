@@ -1,4 +1,3 @@
-README.md
 setup.py
 notejam/notejam.egg-info/PKG-INFO
 notejam/notejam.egg-info/SOURCES.txt

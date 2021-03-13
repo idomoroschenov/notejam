@@ -1,8 +1,8 @@
 import setuptools
 
 
-with open("README.md") as fp:
-    long_description = fp.read()
+# with open("README.md") as fp:
+#     long_description = fp.read()
 
 
 setuptools.setup(
@@ -10,7 +10,7 @@ setuptools.setup(
     version="0.0.1",
 
     description="An empty CDK Python app",
-    long_description=long_description,
+    # long_description=long_description,
     long_description_content_type="text/markdown",
 
     author="author",

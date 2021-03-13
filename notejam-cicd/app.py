@@ -5,8 +5,11 @@ from aws_cdk import core as cdk
 from aws_cdk import core
 
 from notejam.notejam_stack import NotejamStack
+from notejam.codecommit_stack import CodeCommitStack
+
 
 from notejam import variables
+
 
 import datetime
 
@@ -14,6 +17,9 @@ import datetime
 env = cdk.Environment(account=variables.account_id, region=variables.region)
 
 app = cdk.App()
+
+
+CodeCommitStack(app, 'CodeCommitRepo', env=env)
 NotejamStack(app, f"notejam-{variables.stage}", env=env)
 
 app.synth()

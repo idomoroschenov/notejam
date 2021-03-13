@@ -9,121 +9,166 @@
         "path": "Tree",
         "constructInfo": {
           "fqn": "@aws-cdk/core.Construct",
-          "version": "1.92.0"
+          "version": "1.93.0"
+        }
+      },
+      "CodeCommitRepo": {
+        "id": "CodeCommitRepo",
+        "path": "CodeCommitRepo",
+        "children": {
+          "Code for Code Notejam": {
+            "id": "Code for Code Notejam",
+            "path": "CodeCommitRepo/Code for Code Notejam",
+            "children": {
+              "Stage": {
+                "id": "Stage",
+                "path": "CodeCommitRepo/Code for Code Notejam/Stage",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.AssetStaging",
+                  "version": "1.93.0"
+                }
+              },
+              "AssetBucket": {
+                "id": "AssetBucket",
+                "path": "CodeCommitRepo/Code for Code Notejam/AssetBucket",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.Resource",
+                  "version": "1.93.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-s3-assets.Asset",
+              "version": "1.93.0"
+            }
+          },
+          "AssetParameters": {
+            "id": "AssetParameters",
+            "path": "CodeCommitRepo/AssetParameters",
+            "children": {
+              "71ae7e57a6f07c134f43768239fd700145e5934aee87277d18f898b40898fde1": {
+                "id": "71ae7e57a6f07c134f43768239fd700145e5934aee87277d18f898b40898fde1",
+                "path": "CodeCommitRepo/AssetParameters/71ae7e57a6f07c134f43768239fd700145e5934aee87277d18f898b40898fde1",
+                "children": {
+                  "S3Bucket": {
+                    "id": "S3Bucket",
+                    "path": "CodeCommitRepo/AssetParameters/71ae7e57a6f07c134f43768239fd700145e5934aee87277d18f898b40898fde1/S3Bucket",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnParameter",
+                      "version": "1.93.0"
+                    }
+                  },
+                  "S3VersionKey": {
+                    "id": "S3VersionKey",
+                    "path": "CodeCommitRepo/AssetParameters/71ae7e57a6f07c134f43768239fd700145e5934aee87277d18f898b40898fde1/S3VersionKey",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnParameter",
+                      "version": "1.93.0"
+                    }
+                  },
+                  "ArtifactHash": {
+                    "id": "ArtifactHash",
+                    "path": "CodeCommitRepo/AssetParameters/71ae7e57a6f07c134f43768239fd700145e5934aee87277d18f898b40898fde1/ArtifactHash",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnParameter",
+                      "version": "1.93.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.Construct",
+                  "version": "1.93.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.Construct",
+              "version": "1.93.0"
+            }
+          },
+          "Repository": {
+            "id": "Repository",
+            "path": "CodeCommitRepo/Repository",
+            "attributes": {
+              "aws:cdk:cloudformation:type": "AWS::CodeCommit::Repository",
+              "aws:cdk:cloudformation:props": {
+                "repositoryName": "notejam-DEV",
+                "code": {
+                  "s3": {
+                    "bucket": {
+                      "Ref": "AssetParameters71ae7e57a6f07c134f43768239fd700145e5934aee87277d18f898b40898fde1S3BucketE92ADAE9"
+                    },
+                    "key": {
+                      "Fn::Join": [
+                        "",
+                        [
+                          {
+                            "Fn::Select": [
+                              0,
+                              {
+                                "Fn::Split": [
+                                  "||",
+                                  {
+                                    "Ref": "AssetParameters71ae7e57a6f07c134f43768239fd700145e5934aee87277d18f898b40898fde1S3VersionKey0CDBFECC"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Fn::Select": [
+                              1,
+                              {
+                                "Fn::Split": [
+                                  "||",
+                                  {
+                                    "Ref": "AssetParameters71ae7e57a6f07c134f43768239fd700145e5934aee87277d18f898b40898fde1S3VersionKey0CDBFECC"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  },
+                  "branchName": "master"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-codecommit.CfnRepository",
+              "version": "1.93.0"
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "CodeCommitRepo/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "CodeCommitRepo/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnResource",
+                  "version": "1.93.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.Construct",
+              "version": "1.93.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "@aws-cdk/core.Stack",
+          "version": "1.93.0"
         }
       },
       "notejam-DEV": {
         "id": "notejam-DEV",
         "path": "notejam-DEV",
         "children": {
-          "Repository}": {
-            "id": "Repository}",
-            "path": "notejam-DEV/Repository}",
-            "children": {
-              "Resource": {
-                "id": "Resource",
-                "path": "notejam-DEV/Repository}/Resource",
-                "attributes": {
-                  "aws:cdk:cloudformation:type": "AWS::CodeCommit::Repository",
-                  "aws:cdk:cloudformation:props": {
-                    "repositoryName": "Notejam-DEV",
-                    "repositoryDescription": "Git repository for Notejam project"
-                  }
-                },
-                "constructInfo": {
-                  "fqn": "@aws-cdk/aws-codecommit.CfnRepository",
-                  "version": "1.92.0"
-                }
-              },
-              "notejamDEVPipeline18A9F00DEventRule": {
-                "id": "notejamDEVPipeline18A9F00DEventRule",
-                "path": "notejam-DEV/Repository}/notejamDEVPipeline18A9F00DEventRule",
-                "children": {
-                  "Resource": {
-                    "id": "Resource",
-                    "path": "notejam-DEV/Repository}/notejamDEVPipeline18A9F00DEventRule/Resource",
-                    "attributes": {
-                      "aws:cdk:cloudformation:type": "AWS::Events::Rule",
-                      "aws:cdk:cloudformation:props": {
-                        "eventPattern": {
-                          "source": [
-                            "aws.codecommit"
-                          ],
-                          "resources": [
-                            {
-                              "Fn::GetAtt": [
-                                "Repository9C93F11F",
-                                "Arn"
-                              ]
-                            }
-                          ],
-                          "detail-type": [
-                            "CodeCommit Repository State Change"
-                          ],
-                          "detail": {
-                            "event": [
-                              "referenceCreated",
-                              "referenceUpdated"
-                            ],
-                            "referenceName": [
-                              "master"
-                            ]
-                          }
-                        },
-                        "state": "ENABLED",
-                        "targets": [
-                          {
-                            "id": "Target0",
-                            "arn": {
-                              "Fn::Join": [
-                                "",
-                                [
-                                  "arn:",
-                                  {
-                                    "Ref": "AWS::Partition"
-                                  },
-                                  ":codepipeline:eu-west-1:617023782104:",
-                                  {
-                                    "Ref": "PipelineC660917D"
-                                  }
-                                ]
-                              ]
-                            },
-                            "roleArn": {
-                              "Fn::GetAtt": [
-                                "PipelineEventsRole46BEEA7C",
-                                "Arn"
-                              ]
-                            }
-                          }
-                        ]
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "@aws-cdk/aws-events.CfnRule",
-                      "version": "1.92.0"
-                    }
-                  }
-                },
-                "constructInfo": {
-                  "fqn": "@aws-cdk/aws-events.Rule",
-                  "version": "1.92.0"
-                }
-              }
-            },
-            "constructInfo": {
-              "fqn": "@aws-cdk/aws-codecommit.Repository",
-              "version": "1.92.0"
-            }
-          },
-          "Repo HTTP URL": {
-            "id": "Repo HTTP URL",
-            "path": "notejam-DEV/Repo HTTP URL",
-            "constructInfo": {
-              "fqn": "@aws-cdk/core.CfnOutput",
-              "version": "1.92.0"
-            }
-          },
           "CodeBuild logs": {
             "id": "CodeBuild logs",
             "path": "notejam-DEV/CodeBuild logs",
@@ -140,13 +185,13 @@
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-logs.CfnLogGroup",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "@aws-cdk/aws-logs.LogGroup",
-              "version": "1.92.0"
+              "version": "1.93.0"
             }
           },
           "CodeBuild Project": {
@@ -179,7 +224,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-iam.CfnRole",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "DefaultPolicy": {
@@ -280,6 +325,11 @@
                                   "Resource": "*"
                                 },
                                 {
+                                  "Action": "ecs:UpdateService",
+                                  "Effect": "Allow",
+                                  "Resource": "*"
+                                },
+                                {
                                   "Action": [
                                     "s3:GetObject*",
                                     "s3:GetBucket*",
@@ -356,19 +406,19 @@
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-iam.CfnPolicy",
-                          "version": "1.92.0"
+                          "version": "1.93.0"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-iam.Policy",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-iam.Role",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               },
               "Resource": {
@@ -417,7 +467,7 @@
                     },
                     "source": {
                       "type": "CODEPIPELINE",
-                      "buildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"pre_build\": {\n      \"commands\": [\n        \"echo Logging into AWS ECR\",\n        \"aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"echo Build started on `date`\",\n        \"echo Building Docker image\",\n        \"docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .\",\n        \"docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG\"\n      ]\n    },\n    \"post_build\": {\n      \"commands\": [\n        \"echo Build complete on `date`\",\n        \"echo Pushing the Docker image\",\n        \"docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG\",\n        \"aws ecs update-service --cluster notejam-DEV --service notejam-DEV --desired-count 1echo Done\"\n      ]\n    }\n  },\n  \"artifacts\": {\n    \"files\": [\n      \"imagedefinitions.json\"\n    ]\n  }\n}"
+                      "buildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"pre_build\": {\n      \"commands\": [\n        \"echo Logging into AWS ECR\",\n        \"aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"echo Build started on `date`\",\n        \"echo Building Docker image\",\n        \"docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .\",\n        \"docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG\"\n      ]\n    },\n    \"post_build\": {\n      \"commands\": [\n        \"echo Build complete on `date`\",\n        \"echo Pushing the Docker image\",\n        \"docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG\",\n        \"aws ecs update-service --cluster notejam-DEV --service notejam-DEV --desired-count 1\",\n        \"echo Done\"\n      ]\n    }\n  },\n  \"artifacts\": {\n    \"files\": [\n      \"imagedefinitions.json\"\n    ]\n  }\n}"
                     },
                     "description": "CodeBuild project to build Notejam images",
                     "encryptionKey": {
@@ -439,13 +489,13 @@
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-codebuild.CfnProject",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "@aws-cdk/aws-codebuild.PipelineProject",
-              "version": "1.92.0"
+              "version": "1.93.0"
             }
           },
           "ECR Repository": {
@@ -463,13 +513,13 @@
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-ecr.CfnRepository",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "@aws-cdk/aws-ecr.Repository",
-              "version": "1.92.0"
+              "version": "1.93.0"
             }
           },
           "VPC": {
@@ -496,7 +546,7 @@
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-ec2.CfnVPC",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               },
               "PublicSubnet1": {
@@ -533,7 +583,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnSubnet",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "Acl": {
@@ -541,7 +591,7 @@
                     "path": "notejam-DEV/VPC/PublicSubnet1/Acl",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Resource",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "RouteTable": {
@@ -563,7 +613,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnRouteTable",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "RouteTableAssociation": {
@@ -582,7 +632,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnSubnetRouteTableAssociation",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "DefaultRoute": {
@@ -602,7 +652,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnRoute",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "EIP": {
@@ -622,7 +672,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnEIP",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "NATGateway": {
@@ -650,13 +700,13 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnNatGateway",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-ec2.PublicSubnet",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               },
               "PublicSubnet2": {
@@ -693,7 +743,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnSubnet",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "Acl": {
@@ -701,7 +751,7 @@
                     "path": "notejam-DEV/VPC/PublicSubnet2/Acl",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Resource",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "RouteTable": {
@@ -723,7 +773,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnRouteTable",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "RouteTableAssociation": {
@@ -742,7 +792,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnSubnetRouteTableAssociation",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "DefaultRoute": {
@@ -762,7 +812,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnRoute",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "EIP": {
@@ -782,7 +832,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnEIP",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "NATGateway": {
@@ -810,13 +860,13 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnNatGateway",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-ec2.PublicSubnet",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               },
               "PublicSubnet3": {
@@ -853,7 +903,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnSubnet",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "Acl": {
@@ -861,7 +911,7 @@
                     "path": "notejam-DEV/VPC/PublicSubnet3/Acl",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Resource",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "RouteTable": {
@@ -883,7 +933,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnRouteTable",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "RouteTableAssociation": {
@@ -902,7 +952,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnSubnetRouteTableAssociation",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "DefaultRoute": {
@@ -922,7 +972,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnRoute",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "EIP": {
@@ -942,7 +992,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnEIP",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "NATGateway": {
@@ -970,13 +1020,13 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnNatGateway",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-ec2.PublicSubnet",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               },
               "PrivateSubnet1": {
@@ -1013,7 +1063,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnSubnet",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "Acl": {
@@ -1021,7 +1071,7 @@
                     "path": "notejam-DEV/VPC/PrivateSubnet1/Acl",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Resource",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "RouteTable": {
@@ -1043,7 +1093,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnRouteTable",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "RouteTableAssociation": {
@@ -1062,7 +1112,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnSubnetRouteTableAssociation",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "DefaultRoute": {
@@ -1082,13 +1132,13 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnRoute",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-ec2.PrivateSubnet",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               },
               "PrivateSubnet2": {
@@ -1125,7 +1175,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnSubnet",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "Acl": {
@@ -1133,7 +1183,7 @@
                     "path": "notejam-DEV/VPC/PrivateSubnet2/Acl",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Resource",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "RouteTable": {
@@ -1155,7 +1205,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnRouteTable",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "RouteTableAssociation": {
@@ -1174,7 +1224,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnSubnetRouteTableAssociation",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "DefaultRoute": {
@@ -1194,13 +1244,13 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnRoute",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-ec2.PrivateSubnet",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               },
               "PrivateSubnet3": {
@@ -1237,7 +1287,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnSubnet",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "Acl": {
@@ -1245,7 +1295,7 @@
                     "path": "notejam-DEV/VPC/PrivateSubnet3/Acl",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Resource",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "RouteTable": {
@@ -1267,7 +1317,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnRouteTable",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "RouteTableAssociation": {
@@ -1286,7 +1336,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnSubnetRouteTableAssociation",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "DefaultRoute": {
@@ -1306,13 +1356,13 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-ec2.CfnRoute",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-ec2.PrivateSubnet",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               },
               "IGW": {
@@ -1331,7 +1381,7 @@
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-ec2.CfnInternetGateway",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               },
               "VPCGW": {
@@ -1350,13 +1400,13 @@
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-ec2.CfnVPCGatewayAttachment",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "@aws-cdk/aws-ec2.Vpc",
-              "version": "1.92.0"
+              "version": "1.93.0"
             }
           },
           "PSQL Security Group": {
@@ -1384,7 +1434,7 @@
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-ec2.CfnSecurityGroup",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               },
               "from notejamDEVContainerSecurityGroupEEB59E23:5432": {
@@ -1413,13 +1463,13 @@
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-ec2.CfnSecurityGroupIngress",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "@aws-cdk/aws-ec2.SecurityGroup",
-              "version": "1.92.0"
+              "version": "1.93.0"
             }
           },
           "Container Security Group": {
@@ -1447,7 +1497,7 @@
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-ec2.CfnSecurityGroup",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               },
               "from notejamDEVALBSecurityGroupD98A325F:5000": {
@@ -1476,13 +1526,13 @@
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-ec2.CfnSecurityGroupIngress",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "@aws-cdk/aws-ec2.SecurityGroup",
-              "version": "1.92.0"
+              "version": "1.93.0"
             }
           },
           "ALB Security Group": {
@@ -1519,13 +1569,13 @@
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-ec2.CfnSecurityGroup",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "@aws-cdk/aws-ec2.SecurityGroup",
-              "version": "1.92.0"
+              "version": "1.93.0"
             }
           },
           "DB Subnet Group": {
@@ -1551,7 +1601,7 @@
             },
             "constructInfo": {
               "fqn": "@aws-cdk/aws-rds.CfnDBSubnetGroup",
-              "version": "1.92.0"
+              "version": "1.93.0"
             }
           },
           "PostgreSQL Cluster": {
@@ -1567,7 +1617,7 @@
                 "dbSubnetGroupName": "notejamdev",
                 "engineMode": "serverless",
                 "masterUsername": "postgres",
-                "masterUserPassword": "YWVWF7H00OAW",
+                "masterUserPassword": "D3O92IN8RF4Y",
                 "port": 5432,
                 "vpcSecurityGroupIds": [
                   {
@@ -1581,7 +1631,7 @@
             },
             "constructInfo": {
               "fqn": "@aws-cdk/aws-rds.CfnDBCluster",
-              "version": "1.92.0"
+              "version": "1.93.0"
             }
           },
           "Aurora Cluster Endpoint": {
@@ -1589,7 +1639,7 @@
             "path": "notejam-DEV/Aurora Cluster Endpoint",
             "constructInfo": {
               "fqn": "@aws-cdk/core.CfnOutput",
-              "version": "1.92.0"
+              "version": "1.93.0"
             }
           },
           "Dev Policy": {
@@ -1622,13 +1672,13 @@
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-iam.CfnManagedPolicy",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "@aws-cdk/aws-iam.ManagedPolicy",
-              "version": "1.92.0"
+              "version": "1.93.0"
             }
           },
           "Dev Group": {
@@ -1651,13 +1701,13 @@
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-iam.CfnGroup",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "@aws-cdk/aws-iam.Group",
-              "version": "1.92.0"
+              "version": "1.93.0"
             }
           },
           "MyCluster": {
@@ -1675,13 +1725,13 @@
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-ecs.CfnCluster",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "@aws-cdk/aws-ecs.Cluster",
-              "version": "1.92.0"
+              "version": "1.93.0"
             }
           },
           "Task Definition": {
@@ -1714,13 +1764,13 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-iam.CfnRole",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-iam.Role",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               },
               "Resource": {
@@ -1810,7 +1860,7 @@
                               "Fn::Join": [
                                 "",
                                 [
-                                  "postgresql://postgres:YWVWF7H00OAW@",
+                                  "postgresql://postgres:D3O92IN8RF4Y@",
                                   {
                                     "Fn::GetAtt": [
                                       "PostgreSQLCluster",
@@ -1848,7 +1898,7 @@
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-ecs.CfnTaskDefinition",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               },
               "notejamdev": {
@@ -1868,19 +1918,19 @@
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-logs.CfnLogGroup",
-                          "version": "1.92.0"
+                          "version": "1.93.0"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-logs.LogGroup",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-ecs.ContainerDefinition",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               },
               "ExecutionRole": {
@@ -1909,7 +1959,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-iam.CfnRole",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "DefaultPolicy": {
@@ -1969,25 +2019,25 @@
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-iam.CfnPolicy",
-                          "version": "1.92.0"
+                          "version": "1.93.0"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-iam.Policy",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-iam.Role",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "@aws-cdk/aws-ecs.TaskDefinition",
-              "version": "1.92.0"
+              "version": "1.93.0"
             }
           },
           "Service": {
@@ -2052,13 +2102,13 @@
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-ecs.CfnService",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "@aws-cdk/aws-ecs.FargateService",
-              "version": "1.92.0"
+              "version": "1.93.0"
             }
           },
           "Notejam ALB": {
@@ -2103,7 +2153,7 @@
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-elasticloadbalancingv2.CfnLoadBalancer",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               },
               "HTTP Listener": {
@@ -2133,7 +2183,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-elasticloadbalancingv2.CfnListener",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "ECSGroup": {
@@ -2159,25 +2209,25 @@
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-elasticloadbalancingv2.CfnTargetGroup",
-                          "version": "1.92.0"
+                          "version": "1.93.0"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-elasticloadbalancingv2.ApplicationTargetGroup",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-elasticloadbalancingv2.ApplicationListener",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "@aws-cdk/aws-elasticloadbalancingv2.ApplicationLoadBalancer",
-              "version": "1.92.0"
+              "version": "1.93.0"
             }
           },
           "DNS": {
@@ -2185,7 +2235,106 @@
             "path": "notejam-DEV/DNS",
             "constructInfo": {
               "fqn": "@aws-cdk/core.CfnOutput",
-              "version": "1.92.0"
+              "version": "1.93.0"
+            }
+          },
+          "Repository": {
+            "id": "Repository",
+            "path": "notejam-DEV/Repository",
+            "children": {
+              "notejamDEVPipeline18A9F00DEventRule": {
+                "id": "notejamDEVPipeline18A9F00DEventRule",
+                "path": "notejam-DEV/Repository/notejamDEVPipeline18A9F00DEventRule",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "notejam-DEV/Repository/notejamDEVPipeline18A9F00DEventRule/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Events::Rule",
+                      "aws:cdk:cloudformation:props": {
+                        "eventPattern": {
+                          "source": [
+                            "aws.codecommit"
+                          ],
+                          "resources": [
+                            {
+                              "Fn::Join": [
+                                "",
+                                [
+                                  "arn:",
+                                  {
+                                    "Ref": "AWS::Partition"
+                                  },
+                                  ":codecommit:eu-west-1:617023782104:notejam-DEV"
+                                ]
+                              ]
+                            }
+                          ],
+                          "detail-type": [
+                            "CodeCommit Repository State Change"
+                          ],
+                          "detail": {
+                            "event": [
+                              "referenceCreated",
+                              "referenceUpdated"
+                            ],
+                            "referenceName": [
+                              "master"
+                            ]
+                          }
+                        },
+                        "state": "ENABLED",
+                        "targets": [
+                          {
+                            "id": "Target0",
+                            "arn": {
+                              "Fn::Join": [
+                                "",
+                                [
+                                  "arn:",
+                                  {
+                                    "Ref": "AWS::Partition"
+                                  },
+                                  ":codepipeline:eu-west-1:617023782104:",
+                                  {
+                                    "Ref": "PipelineC660917D"
+                                  }
+                                ]
+                              ]
+                            },
+                            "roleArn": {
+                              "Fn::GetAtt": [
+                                "PipelineEventsRole46BEEA7C",
+                                "Arn"
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-events.CfnRule",
+                      "version": "1.93.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-events.Rule",
+                  "version": "1.93.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.Resource",
+              "version": "1.93.0"
+            }
+          },
+          "Repo HTTP URL": {
+            "id": "Repo HTTP URL",
+            "path": "notejam-DEV/Repo HTTP URL",
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.CfnOutput",
+              "version": "1.93.0"
             }
           },
           "Pipeline": {
@@ -2230,13 +2379,13 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-kms.CfnKey",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-kms.Key",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               },
               "ArtifactsBucketEncryptionKeyAlias": {
@@ -2260,13 +2409,13 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-kms.CfnAlias",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-kms.Alias",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               },
               "ArtifactsBucket": {
@@ -2304,7 +2453,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-s3.CfnBucket",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "Notifications": {
@@ -2312,13 +2461,13 @@
                     "path": "notejam-DEV/Pipeline/ArtifactsBucket/Notifications",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Construct",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-s3.Bucket",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               },
               "Role": {
@@ -2347,7 +2496,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-iam.CfnRole",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "DefaultPolicy": {
@@ -2454,19 +2603,19 @@
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-iam.CfnPolicy",
-                          "version": "1.92.0"
+                          "version": "1.93.0"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-iam.Policy",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-iam.Role",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               },
               "Resource": {
@@ -2499,12 +2648,7 @@
                               "provider": "CodeCommit"
                             },
                             "configuration": {
-                              "RepositoryName": {
-                                "Fn::GetAtt": [
-                                  "Repository9C93F11F",
-                                  "Name"
-                                ]
-                              },
+                              "RepositoryName": "notejam-DEV",
                               "BranchName": "master",
                               "PollForSourceChanges": false
                             },
@@ -2611,7 +2755,7 @@
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-codepipeline.CfnPipeline",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               },
               "Source": {
@@ -2659,7 +2803,7 @@
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-iam.CfnRole",
-                              "version": "1.92.0"
+                              "version": "1.93.0"
                             }
                           },
                           "DefaultPolicy": {
@@ -2733,9 +2877,15 @@
                                           ],
                                           "Effect": "Allow",
                                           "Resource": {
-                                            "Fn::GetAtt": [
-                                              "Repository9C93F11F",
-                                              "Arn"
+                                            "Fn::Join": [
+                                              "",
+                                              [
+                                                "arn:",
+                                                {
+                                                  "Ref": "AWS::Partition"
+                                                },
+                                                ":codecommit:eu-west-1:617023782104:notejam-DEV"
+                                              ]
                                             ]
                                           }
                                         }
@@ -2752,31 +2902,31 @@
                                 },
                                 "constructInfo": {
                                   "fqn": "@aws-cdk/aws-iam.CfnPolicy",
-                                  "version": "1.92.0"
+                                  "version": "1.93.0"
                                 }
                               }
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-iam.Policy",
-                              "version": "1.92.0"
+                              "version": "1.93.0"
                             }
                           }
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-iam.Role",
-                          "version": "1.92.0"
+                          "version": "1.93.0"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Construct",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.Construct",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               },
               "EventsRole": {
@@ -2805,7 +2955,7 @@
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-iam.CfnRole",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   },
                   "DefaultPolicy": {
@@ -2852,19 +3002,19 @@
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-iam.CfnPolicy",
-                          "version": "1.92.0"
+                          "version": "1.93.0"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/aws-iam.Policy",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/aws-iam.Role",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               },
               "Build": {
@@ -2912,7 +3062,7 @@
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-iam.CfnRole",
-                              "version": "1.92.0"
+                              "version": "1.93.0"
                             }
                           },
                           "DefaultPolicy": {
@@ -2954,31 +3104,31 @@
                                 },
                                 "constructInfo": {
                                   "fqn": "@aws-cdk/aws-iam.CfnPolicy",
-                                  "version": "1.92.0"
+                                  "version": "1.93.0"
                                 }
                               }
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-iam.Policy",
-                              "version": "1.92.0"
+                              "version": "1.93.0"
                             }
                           }
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-iam.Role",
-                          "version": "1.92.0"
+                          "version": "1.93.0"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Construct",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.Construct",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               },
               "Deploy": {
@@ -3026,7 +3176,7 @@
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-iam.CfnRole",
-                              "version": "1.92.0"
+                              "version": "1.93.0"
                             }
                           },
                           "DefaultPolicy": {
@@ -3122,37 +3272,37 @@
                                 },
                                 "constructInfo": {
                                   "fqn": "@aws-cdk/aws-iam.CfnPolicy",
-                                  "version": "1.92.0"
+                                  "version": "1.93.0"
                                 }
                               }
                             },
                             "constructInfo": {
                               "fqn": "@aws-cdk/aws-iam.Policy",
-                              "version": "1.92.0"
+                              "version": "1.93.0"
                             }
                           }
                         },
                         "constructInfo": {
                           "fqn": "@aws-cdk/aws-iam.Role",
-                          "version": "1.92.0"
+                          "version": "1.93.0"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Construct",
-                      "version": "1.92.0"
+                      "version": "1.93.0"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.Construct",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "@aws-cdk/aws-codepipeline.Pipeline",
-              "version": "1.92.0"
+              "version": "1.93.0"
             }
           },
           "CDKMetadata": {
@@ -3164,25 +3314,25 @@
                 "path": "notejam-DEV/CDKMetadata/Default",
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.CfnResource",
-                  "version": "1.92.0"
+                  "version": "1.93.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "@aws-cdk/core.Construct",
-              "version": "1.92.0"
+              "version": "1.93.0"
             }
           }
         },
         "constructInfo": {
           "fqn": "@aws-cdk/core.Stack",
-          "version": "1.92.0"
+          "version": "1.93.0"
         }
       }
     },
     "constructInfo": {
       "fqn": "@aws-cdk/core.App",
-      "version": "1.92.0"
+      "version": "1.93.0"
     }
   }
 }

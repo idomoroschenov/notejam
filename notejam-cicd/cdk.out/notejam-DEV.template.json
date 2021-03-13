@@ -1,75 +1,5 @@
 {
   "Resources": {
-    "Repository9C93F11F": {
-      "Type": "AWS::CodeCommit::Repository",
-      "Properties": {
-        "RepositoryName": "Notejam-DEV",
-        "RepositoryDescription": "Git repository for Notejam project"
-      },
-      "Metadata": {
-        "aws:cdk:path": "notejam-DEV/Repository}/Resource"
-      }
-    },
-    "RepositorynotejamDEVPipeline18A9F00DEventRule72AE6A97": {
-      "Type": "AWS::Events::Rule",
-      "Properties": {
-        "EventPattern": {
-          "source": [
-            "aws.codecommit"
-          ],
-          "resources": [
-            {
-              "Fn::GetAtt": [
-                "Repository9C93F11F",
-                "Arn"
-              ]
-            }
-          ],
-          "detail-type": [
-            "CodeCommit Repository State Change"
-          ],
-          "detail": {
-            "event": [
-              "referenceCreated",
-              "referenceUpdated"
-            ],
-            "referenceName": [
-              "master"
-            ]
-          }
-        },
-        "State": "ENABLED",
-        "Targets": [
-          {
-            "Arn": {
-              "Fn::Join": [
-                "",
-                [
-                  "arn:",
-                  {
-                    "Ref": "AWS::Partition"
-                  },
-                  ":codepipeline:eu-west-1:617023782104:",
-                  {
-                    "Ref": "PipelineC660917D"
-                  }
-                ]
-              ]
-            },
-            "Id": "Target0",
-            "RoleArn": {
-              "Fn::GetAtt": [
-                "PipelineEventsRole46BEEA7C",
-                "Arn"
-              ]
-            }
-          }
-        ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "notejam-DEV/Repository}/notejamDEVPipeline18A9F00DEventRule/Resource"
-      }
-    },
     "CodeBuildlogs07530B94": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
@@ -193,6 +123,11 @@
               "Resource": "*"
             },
             {
+              "Action": "ecs:UpdateService",
+              "Effect": "Allow",
+              "Resource": "*"
+            },
+            {
               "Action": [
                 "s3:GetObject*",
                 "s3:GetBucket*",
@@ -312,7 +247,7 @@
           ]
         },
         "Source": {
-          "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"pre_build\": {\n      \"commands\": [\n        \"echo Logging into AWS ECR\",\n        \"aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"echo Build started on `date`\",\n        \"echo Building Docker image\",\n        \"docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .\",\n        \"docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG\"\n      ]\n    },\n    \"post_build\": {\n      \"commands\": [\n        \"echo Build complete on `date`\",\n        \"echo Pushing the Docker image\",\n        \"docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG\",\n        \"aws ecs update-service --cluster notejam-DEV --service notejam-DEV --desired-count 1echo Done\"\n      ]\n    }\n  },\n  \"artifacts\": {\n    \"files\": [\n      \"imagedefinitions.json\"\n    ]\n  }\n}",
+          "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"pre_build\": {\n      \"commands\": [\n        \"echo Logging into AWS ECR\",\n        \"aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"echo Build started on `date`\",\n        \"echo Building Docker image\",\n        \"docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .\",\n        \"docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG\"\n      ]\n    },\n    \"post_build\": {\n      \"commands\": [\n        \"echo Build complete on `date`\",\n        \"echo Pushing the Docker image\",\n        \"docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG\",\n        \"aws ecs update-service --cluster notejam-DEV --service notejam-DEV --desired-count 1\",\n        \"echo Done\"\n      ]\n    }\n  },\n  \"artifacts\": {\n    \"files\": [\n      \"imagedefinitions.json\"\n    ]\n  }\n}",
           "Type": "CODEPIPELINE"
         },
         "Description": "CodeBuild project to build Notejam images",
@@ -1105,7 +1040,7 @@
         "DBSubnetGroupName": "notejamdev",
         "EngineMode": "serverless",
         "MasterUsername": "postgres",
-        "MasterUserPassword": "YWVWF7H00OAW",
+        "MasterUserPassword": "D3O92IN8RF4Y",
         "Port": 5432,
         "VpcSecurityGroupIds": [
           {
@@ -1206,7 +1141,7 @@
                   "Fn::Join": [
                     "",
                     [
-                      "postgresql://postgres:YWVWF7H00OAW@",
+                      "postgresql://postgres:D3O92IN8RF4Y@",
                       {
                         "Fn::GetAtt": [
                           "PostgreSQLCluster",
@@ -1531,6 +1466,72 @@
         "aws:cdk:path": "notejam-DEV/Notejam ALB/HTTP Listener/ECSGroup/Resource"
       }
     },
+    "RepositorynotejamDEVPipeline18A9F00DEventRuleA487D624": {
+      "Type": "AWS::Events::Rule",
+      "Properties": {
+        "EventPattern": {
+          "source": [
+            "aws.codecommit"
+          ],
+          "resources": [
+            {
+              "Fn::Join": [
+                "",
+                [
+                  "arn:",
+                  {
+                    "Ref": "AWS::Partition"
+                  },
+                  ":codecommit:eu-west-1:617023782104:notejam-DEV"
+                ]
+              ]
+            }
+          ],
+          "detail-type": [
+            "CodeCommit Repository State Change"
+          ],
+          "detail": {
+            "event": [
+              "referenceCreated",
+              "referenceUpdated"
+            ],
+            "referenceName": [
+              "master"
+            ]
+          }
+        },
+        "State": "ENABLED",
+        "Targets": [
+          {
+            "Arn": {
+              "Fn::Join": [
+                "",
+                [
+                  "arn:",
+                  {
+                    "Ref": "AWS::Partition"
+                  },
+                  ":codepipeline:eu-west-1:617023782104:",
+                  {
+                    "Ref": "PipelineC660917D"
+                  }
+                ]
+              ]
+            },
+            "Id": "Target0",
+            "RoleArn": {
+              "Fn::GetAtt": [
+                "PipelineEventsRole46BEEA7C",
+                "Arn"
+              ]
+            }
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "notejam-DEV/Repository/notejamDEVPipeline18A9F00DEventRule/Resource"
+      }
+    },
     "PipelineArtifactsBucketEncryptionKey01D58D69": {
       "Type": "AWS::KMS::Key",
       "Properties": {
@@ -1751,12 +1752,7 @@
                   "Version": "1"
                 },
                 "Configuration": {
-                  "RepositoryName": {
-                    "Fn::GetAtt": [
-                      "Repository9C93F11F",
-                      "Name"
-                    ]
-                  },
+                  "RepositoryName": "notejam-DEV",
                   "BranchName": "master",
                   "PollForSourceChanges": false
                 },
@@ -1970,9 +1966,15 @@
               ],
               "Effect": "Allow",
               "Resource": {
-                "Fn::GetAtt": [
-                  "Repository9C93F11F",
-                  "Arn"
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":codecommit:eu-west-1:617023782104:notejam-DEV"
+                  ]
                 ]
               }
             }
@@ -2233,7 +2235,7 @@
     "CDKMetadata": {
       "Type": "AWS::CDK::Metadata",
       "Properties": {
-        "Modules": "aws-cdk=1.92.0,@aws-cdk/assets=1.92.0,@aws-cdk/aws-apigateway=1.92.0,@aws-cdk/aws-apigatewayv2=1.92.0,@aws-cdk/aws-applicationautoscaling=1.92.0,@aws-cdk/aws-autoscaling=1.92.0,@aws-cdk/aws-autoscaling-common=1.92.0,@aws-cdk/aws-autoscaling-hooktargets=1.92.0,@aws-cdk/aws-batch=1.92.0,@aws-cdk/aws-certificatemanager=1.92.0,@aws-cdk/aws-cloudformation=1.92.0,@aws-cdk/aws-cloudfront=1.92.0,@aws-cdk/aws-cloudwatch=1.92.0,@aws-cdk/aws-codebuild=1.92.0,@aws-cdk/aws-codecommit=1.92.0,@aws-cdk/aws-codedeploy=1.92.0,@aws-cdk/aws-codeguruprofiler=1.92.0,@aws-cdk/aws-codepipeline=1.92.0,@aws-cdk/aws-codepipeline-actions=1.92.0,@aws-cdk/aws-cognito=1.92.0,@aws-cdk/aws-ec2=1.92.0,@aws-cdk/aws-ecr=1.92.0,@aws-cdk/aws-ecr-assets=1.92.0,@aws-cdk/aws-ecs=1.92.0,@aws-cdk/aws-efs=1.92.0,@aws-cdk/aws-elasticloadbalancing=1.92.0,@aws-cdk/aws-elasticloadbalancingv2=1.92.0,@aws-cdk/aws-events=1.92.0,@aws-cdk/aws-events-targets=1.92.0,@aws-cdk/aws-globalaccelerator=1.92.0,@aws-cdk/aws-iam=1.92.0,@aws-cdk/aws-kinesis=1.92.0,@aws-cdk/aws-kinesisfirehose=1.92.0,@aws-cdk/aws-kms=1.92.0,@aws-cdk/aws-lambda=1.92.0,@aws-cdk/aws-logs=1.92.0,@aws-cdk/aws-rds=1.92.0,@aws-cdk/aws-route53=1.92.0,@aws-cdk/aws-route53-targets=1.92.0,@aws-cdk/aws-s3=1.92.0,@aws-cdk/aws-s3-assets=1.92.0,@aws-cdk/aws-sam=1.92.0,@aws-cdk/aws-secretsmanager=1.92.0,@aws-cdk/aws-servicecatalog=1.92.0,@aws-cdk/aws-servicediscovery=1.92.0,@aws-cdk/aws-signer=1.92.0,@aws-cdk/aws-sns=1.92.0,@aws-cdk/aws-sns-subscriptions=1.92.0,@aws-cdk/aws-sqs=1.92.0,@aws-cdk/aws-ssm=1.92.0,@aws-cdk/aws-stepfunctions=1.92.0,@aws-cdk/cloud-assembly-schema=1.92.0,@aws-cdk/core=1.92.0,@aws-cdk/custom-resources=1.92.0,@aws-cdk/cx-api=1.92.0,@aws-cdk/region-info=1.92.0,jsii-runtime=Python/3.9.2"
+        "Analytics": "v2:deflate64:H4sIAAAAAAAAE31SyW7jMAz9lt5Vdcmpt2aZKYIuYzhB77LMuqwVydCSwjD870NZduzOYU58fKTIR5F3/GHFb68exbe7lmV900ljgXcHL2TNcnAmWAls+6H/BN8Ez7ZGO2+D9JGb4j2LzztlKse7F1M9WROamDDhnklTQhFQlbzLsAGFGjJrviAVGmHPUJx4lxs1tBxsZhTKdkhK6FVoUUE58z+JS++xMUhLFaExDr2xbZI9eTF8z7v3Rkb+PduyLBRU5hAKDYOyGeUmeDiKImlL/MytnTMShUejL8kR/Npn0bwJ/yQ8fIuWZRbPBOfCe+3BEp4SkpLRW3vaxOcJtGcHkMGiby8T/p/Y68qCcz2zJW2FortN6nlJ3222KjhqHr8h5iQvhiZ4FK7ewQdqnCb7lzHaC1qmXXC/ha3ihGDPmI5nhNRHCedRKiPKQiihJerqTBtYNw19+/B9LxTbDLEk5Ye/zENSqMecCS/iR1KxGHbhkowzfShNnIfx0simG23G45zPdDi9EfesPtGzZxi2FM1aoXDRGUDP3Ip3myDrtNqE+r5nWes/jb5Z8Qd+f/XlEK9t0B5PwPNk/wJ0MHdViQMAAA=="
       },
       "Metadata": {
         "aws:cdk:path": "notejam-DEV/CDKMetadata/Default"
@@ -2241,17 +2243,6 @@
     }
   },
   "Outputs": {
-    "RepoHTTPURL": {
-      "Value": {
-        "Fn::GetAtt": [
-          "Repository9C93F11F",
-          "CloneUrlHttp"
-        ]
-      },
-      "Export": {
-        "Name": "CodeCommit-HTTP-URL"
-      }
-    },
     "AuroraClusterEndpoint": {
       "Value": {
         "Fn::GetAtt": [
@@ -2272,6 +2263,23 @@
       },
       "Export": {
         "Name": "alb-dns-name"
+      }
+    },
+    "RepoHTTPURL": {
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "https://git-codecommit.eu-west-1.",
+            {
+              "Ref": "AWS::URLSuffix"
+            },
+            "/v1/repos/notejam-DEV"
+          ]
+        ]
+      },
+      "Export": {
+        "Name": "CodeCommit-HTTP-URL"
       }
     }
   }

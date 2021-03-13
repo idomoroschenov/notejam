@@ -11,6 +11,8 @@ from aws_cdk import aws_iam as iam
 from aws_cdk import aws_ec2 as ec2
 from aws_cdk import aws_elasticloadbalancingv2 as lb
 from aws_cdk import aws_codepipeline_actions as codepipeline_actions
+from aws_cdk import aws_s3_assets as s3_assets
+import os
 import variables
 import random
 import string
@@ -18,7 +20,7 @@ import json
 
 
 def create_img_def():
-    with open('../notejam/imagedefinitions.json', 'w') as file:
+    with open('../notejam-code/imagedefinitions.json', 'w') as file:
         img = [{
             'name': variables.ecr_repo_name,
             'imageUri': f'{variables.account_id}.dkr.ecr.{variables.region}.amazonaws.com/{variables.ecr_repo_name}'
@@ -32,6 +34,7 @@ def generate_secret():
     return secret
 password = generate_secret()
 
+print(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../..', 'notejam-code')))
 
 class NotejamStack(cdk.Stack):
 
@@ -40,11 +43,13 @@ class NotejamStack(cdk.Stack):
 
 
         # CodeCommit Repo
-        repository = codecommit.Repository(self, "Repository}", repository_name=f"Notejam-{variables.stage}",
-                                           description="Git repository for Notejam project")
+
+
+        # codecommit_zip = s3_assets.Asset(self, 'Code for Code Notejam', path=os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../..', 'notejam-code')))
+        # cfn_repository = codecommit.CfnRepository(self, 'Repository',
+        # repository_name=f'notejam-{variables.stage}',
+        # code=codecommit_zip)
         # core.Tags.of(repository).add("Test_Key", "Test_Value")
-        repository_http_url = core.CfnOutput(self, "Repo HTTP URL", value=repository.repository_clone_url_http,
-                                             export_name="CodeCommit-HTTP-URL")
 
 
         #CodeBuild Project
@@ -71,7 +76,7 @@ class NotejamStack(cdk.Stack):
                         "echo Build complete on `date`",
                         "echo Pushing the Docker image",
                         "docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG",
-                        f"aws ecs update-service --cluster notejam-{variables.stage} --service notejam-{variables.stage} --desired-count 1"
+                        f"aws ecs update-service --cluster notejam-{variables.stage} --service notejam-{variables.stage} --desired-count 1",
                         "echo Done"
                     ]
                 )
@@ -99,6 +104,10 @@ class NotejamStack(cdk.Stack):
 
         codebuild_project.add_to_role_policy(iam.PolicyStatement(effect=iam.Effect.ALLOW,
                                              resources=['*'], actions=['ecr:*']))
+
+
+        codebuild_project.add_to_role_policy(iam.PolicyStatement(effect=iam.Effect.ALLOW,
+                                             resources=['*'], actions=['ecs:UpdateService']))
 
 
         # ECR Repository
@@ -211,7 +220,9 @@ class NotejamStack(cdk.Stack):
                                   ))
 
 
-
+        repository = codecommit.Repository.from_repository_name(self, "Repository", repository_name=f"notejam-{variables.stage}")
+        repository_http_url = core.CfnOutput(self, "Repo HTTP URL", value=repository.repository_clone_url_http,
+                                             export_name="CodeCommit-HTTP-URL")
 
         # CodePipeline
         pipeline = codepipeline.Pipeline(self, 'Pipeline',
