@@ -10,7 +10,6 @@ A decoupled version of Notejam project with CI/CD and IaC.
 ## Prerequisites
 
 - AWS CDK
-- IAM account with HTTPS Git Credentials
 - Python 3.8 or Later
 - virtualenv
 - AWS CLI with configured account and full access for CloudFormation and S3
@@ -21,11 +20,15 @@ A decoupled version of Notejam project with CI/CD and IaC.
 - Activate virtual environment by running `virtualenv venv && source venv/bin/activate`
 - Install python dependencies `pip install -r requirements.txt`
 - Change the *notejam/variables.py* file to configure application's stage, region and account_id
-- Run `cdk deploy` and approve deployment
-- Navigate to **notejam-code/** and deploy code to the created repository *notejam.RepoHTTPURL* `
+- Run `cdk bootstrap` to provision deployment infrastructure. Specify your account id and region where deployment should take place.
+- Run `cdk deploy --all` to deploy the application
+- When finished, cdk will output app URL
 
+## Initial requirements
 
+![Requirements](https://github.com/idomoroschenov/notejam/blob/b182142215affd5f538006e24e135181839faa60/notejam-diagrams/notejam.png)
 
+## Implemented Architecture
 **Technical Overview**
 
 ![TechnicalView](https://github.com/idomoroschenov/notejam/blob/44bca2da325e7048f461000f01cb5aaf8cb153e9/notejam-diagrams/TechnicalView.png)
