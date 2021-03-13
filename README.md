@@ -28,6 +28,14 @@ A decoupled version of Notejam project with CI/CD and IaC.
 
 ![Requirements](https://github.com/idomoroschenov/notejam/blob/b182142215affd5f538006e24e135181839faa60/notejam-diagrams/notejam.png)
 
+- Application is ready to scale dynamically based on the traffic load which is implemented via ECS scaling policy for the web layer and via Aurora Serverless scaling for the data layer.
+- Regular snapshots of the database are taken and are availalbe for S3 export. They will be kept for 3 years in a warm state and archived after that period.
+- Both container fleet and the database span across multiple availability zones thus making service resillient to the outages
+- All infrastructure is described in Python code and is ready to be deployed in any available region with respective variables
+- A development CI/CD pipeline is created for the developers and the Dev group is provisioned in the account allowing developers to work with the required resources
+- Application can be deployed in several modes that would run independently. It is possible to include per-stage rollout of the service in the development pipeline
+- All logs are exported to the CloudWatch log groups and are available for the analysis
+
 ## Implemented Architecture
 **Technical Overview**
 
