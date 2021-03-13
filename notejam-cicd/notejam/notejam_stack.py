@@ -38,12 +38,12 @@ def create_img_def():
 create_img_def()
 
 
+
 def generate_secret():
     secret = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(12))
     return secret
 password = generate_secret()
 
-print(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../..', 'notejam-code')))
 
 class NotejamStack(cdk.Stack):
 
