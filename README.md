@@ -52,3 +52,9 @@ The architecture above is the first iteration which covers all business requirem
 
 
 ## Further recommendations
+
+- Add Cognito service to decouple user management and authentication and the rest of the service
+- Add WAF before ALB to filter the traffic and add more security 
+- Add a Route53 Alias record to have a static URL for the service
+- Add a SecretsManager secret to rotate and secure access to the DB
+- Implement an Organizations tree of accounts to separate workloads by the stage
