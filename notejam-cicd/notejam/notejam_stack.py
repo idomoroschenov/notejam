@@ -51,16 +51,6 @@ class NotejamStack(cdk.Stack):
         super().__init__(scope, construct_id, **kwargs)
 
 
-        # CodeCommit Repo
-
-
-        # codecommit_zip = s3_assets.Asset(self, 'Code for Code Notejam', path=os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../..', 'notejam-code')))
-        # cfn_repository = codecommit.CfnRepository(self, 'Repository',
-        # repository_name=f'notejam-{variables.stage}',
-        # code=codecommit_zip)
-        # core.Tags.of(repository).add("Test_Key", "Test_Value")
-
-
         #CodeBuild Project
         build_spec = codebuild.BuildSpec.from_object(dict(
             version="0.2",
