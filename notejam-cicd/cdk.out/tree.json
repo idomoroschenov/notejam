@@ -12,17 +12,17 @@
           "version": "1.93.0"
         }
       },
-      "CodeCommitRepo": {
-        "id": "CodeCommitRepo",
-        "path": "CodeCommitRepo",
+      "notejam-repository": {
+        "id": "notejam-repository",
+        "path": "notejam-repository",
         "children": {
           "Code for Code Notejam": {
             "id": "Code for Code Notejam",
-            "path": "CodeCommitRepo/Code for Code Notejam",
+            "path": "notejam-repository/Code for Code Notejam",
             "children": {
               "Stage": {
                 "id": "Stage",
-                "path": "CodeCommitRepo/Code for Code Notejam/Stage",
+                "path": "notejam-repository/Code for Code Notejam/Stage",
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.AssetStaging",
                   "version": "1.93.0"
@@ -30,7 +30,7 @@
               },
               "AssetBucket": {
                 "id": "AssetBucket",
-                "path": "CodeCommitRepo/Code for Code Notejam/AssetBucket",
+                "path": "notejam-repository/Code for Code Notejam/AssetBucket",
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.Resource",
                   "version": "1.93.0"
@@ -44,15 +44,15 @@
           },
           "AssetParameters": {
             "id": "AssetParameters",
-            "path": "CodeCommitRepo/AssetParameters",
+            "path": "notejam-repository/AssetParameters",
             "children": {
               "71ae7e57a6f07c134f43768239fd700145e5934aee87277d18f898b40898fde1": {
                 "id": "71ae7e57a6f07c134f43768239fd700145e5934aee87277d18f898b40898fde1",
-                "path": "CodeCommitRepo/AssetParameters/71ae7e57a6f07c134f43768239fd700145e5934aee87277d18f898b40898fde1",
+                "path": "notejam-repository/AssetParameters/71ae7e57a6f07c134f43768239fd700145e5934aee87277d18f898b40898fde1",
                 "children": {
                   "S3Bucket": {
                     "id": "S3Bucket",
-                    "path": "CodeCommitRepo/AssetParameters/71ae7e57a6f07c134f43768239fd700145e5934aee87277d18f898b40898fde1/S3Bucket",
+                    "path": "notejam-repository/AssetParameters/71ae7e57a6f07c134f43768239fd700145e5934aee87277d18f898b40898fde1/S3Bucket",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnParameter",
                       "version": "1.93.0"
@@ -60,7 +60,7 @@
                   },
                   "S3VersionKey": {
                     "id": "S3VersionKey",
-                    "path": "CodeCommitRepo/AssetParameters/71ae7e57a6f07c134f43768239fd700145e5934aee87277d18f898b40898fde1/S3VersionKey",
+                    "path": "notejam-repository/AssetParameters/71ae7e57a6f07c134f43768239fd700145e5934aee87277d18f898b40898fde1/S3VersionKey",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnParameter",
                       "version": "1.93.0"
@@ -68,7 +68,7 @@
                   },
                   "ArtifactHash": {
                     "id": "ArtifactHash",
-                    "path": "CodeCommitRepo/AssetParameters/71ae7e57a6f07c134f43768239fd700145e5934aee87277d18f898b40898fde1/ArtifactHash",
+                    "path": "notejam-repository/AssetParameters/71ae7e57a6f07c134f43768239fd700145e5934aee87277d18f898b40898fde1/ArtifactHash",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.CfnParameter",
                       "version": "1.93.0"
@@ -88,7 +88,7 @@
           },
           "Repository": {
             "id": "Repository",
-            "path": "CodeCommitRepo/Repository",
+            "path": "notejam-repository/Repository",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::CodeCommit::Repository",
               "aws:cdk:cloudformation:props": {
@@ -143,11 +143,11 @@
           },
           "CDKMetadata": {
             "id": "CDKMetadata",
-            "path": "CodeCommitRepo/CDKMetadata",
+            "path": "notejam-repository/CDKMetadata",
             "children": {
               "Default": {
                 "id": "Default",
-                "path": "CodeCommitRepo/CDKMetadata/Default",
+                "path": "notejam-repository/CDKMetadata/Default",
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.CfnResource",
                   "version": "1.93.0"
@@ -165,17 +165,17 @@
           "version": "1.93.0"
         }
       },
-      "notejam-DEV": {
-        "id": "notejam-DEV",
-        "path": "notejam-DEV",
+      "notejam-main-DEV": {
+        "id": "notejam-main-DEV",
+        "path": "notejam-main-DEV",
         "children": {
           "CodeBuild logs": {
             "id": "CodeBuild logs",
-            "path": "notejam-DEV/CodeBuild logs",
+            "path": "notejam-main-DEV/CodeBuild logs",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "notejam-DEV/CodeBuild logs/Resource",
+                "path": "notejam-main-DEV/CodeBuild logs/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::Logs::LogGroup",
                   "aws:cdk:cloudformation:props": {
@@ -196,15 +196,15 @@
           },
           "CodeBuild Project": {
             "id": "CodeBuild Project",
-            "path": "notejam-DEV/CodeBuild Project",
+            "path": "notejam-main-DEV/CodeBuild Project",
             "children": {
               "Role": {
                 "id": "Role",
-                "path": "notejam-DEV/CodeBuild Project/Role",
+                "path": "notejam-main-DEV/CodeBuild Project/Role",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "notejam-DEV/CodeBuild Project/Role/Resource",
+                    "path": "notejam-main-DEV/CodeBuild Project/Role/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                       "aws:cdk:cloudformation:props": {
@@ -229,11 +229,11 @@
                   },
                   "DefaultPolicy": {
                     "id": "DefaultPolicy",
-                    "path": "notejam-DEV/CodeBuild Project/Role/DefaultPolicy",
+                    "path": "notejam-main-DEV/CodeBuild Project/Role/DefaultPolicy",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "notejam-DEV/CodeBuild Project/Role/DefaultPolicy/Resource",
+                        "path": "notejam-main-DEV/CodeBuild Project/Role/DefaultPolicy/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                           "aws:cdk:cloudformation:props": {
@@ -423,7 +423,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "notejam-DEV/CodeBuild Project/Resource",
+                "path": "notejam-main-DEV/CodeBuild Project/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::CodeBuild::Project",
                   "aws:cdk:cloudformation:props": {
@@ -500,11 +500,11 @@
           },
           "ECR Repository": {
             "id": "ECR Repository",
-            "path": "notejam-DEV/ECR Repository",
+            "path": "notejam-main-DEV/ECR Repository",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "notejam-DEV/ECR Repository/Resource",
+                "path": "notejam-main-DEV/ECR Repository/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::ECR::Repository",
                   "aws:cdk:cloudformation:props": {
@@ -524,11 +524,11 @@
           },
           "VPC": {
             "id": "VPC",
-            "path": "notejam-DEV/VPC",
+            "path": "notejam-main-DEV/VPC",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "notejam-DEV/VPC/Resource",
+                "path": "notejam-main-DEV/VPC/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::VPC",
                   "aws:cdk:cloudformation:props": {
@@ -539,7 +539,7 @@
                     "tags": [
                       {
                         "key": "Name",
-                        "value": "notejam-DEV/VPC"
+                        "value": "notejam-main-DEV/VPC"
                       }
                     ]
                   }
@@ -551,11 +551,11 @@
               },
               "PublicSubnet1": {
                 "id": "PublicSubnet1",
-                "path": "notejam-DEV/VPC/PublicSubnet1",
+                "path": "notejam-main-DEV/VPC/PublicSubnet1",
                 "children": {
                   "Subnet": {
                     "id": "Subnet",
-                    "path": "notejam-DEV/VPC/PublicSubnet1/Subnet",
+                    "path": "notejam-main-DEV/VPC/PublicSubnet1/Subnet",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
                       "aws:cdk:cloudformation:props": {
@@ -576,7 +576,7 @@
                           },
                           {
                             "key": "Name",
-                            "value": "notejam-DEV/VPC/PublicSubnet1"
+                            "value": "notejam-main-DEV/VPC/PublicSubnet1"
                           }
                         ]
                       }
@@ -588,7 +588,7 @@
                   },
                   "Acl": {
                     "id": "Acl",
-                    "path": "notejam-DEV/VPC/PublicSubnet1/Acl",
+                    "path": "notejam-main-DEV/VPC/PublicSubnet1/Acl",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Resource",
                       "version": "1.93.0"
@@ -596,7 +596,7 @@
                   },
                   "RouteTable": {
                     "id": "RouteTable",
-                    "path": "notejam-DEV/VPC/PublicSubnet1/RouteTable",
+                    "path": "notejam-main-DEV/VPC/PublicSubnet1/RouteTable",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
                       "aws:cdk:cloudformation:props": {
@@ -606,7 +606,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "notejam-DEV/VPC/PublicSubnet1"
+                            "value": "notejam-main-DEV/VPC/PublicSubnet1"
                           }
                         ]
                       }
@@ -618,7 +618,7 @@
                   },
                   "RouteTableAssociation": {
                     "id": "RouteTableAssociation",
-                    "path": "notejam-DEV/VPC/PublicSubnet1/RouteTableAssociation",
+                    "path": "notejam-main-DEV/VPC/PublicSubnet1/RouteTableAssociation",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
                       "aws:cdk:cloudformation:props": {
@@ -637,7 +637,7 @@
                   },
                   "DefaultRoute": {
                     "id": "DefaultRoute",
-                    "path": "notejam-DEV/VPC/PublicSubnet1/DefaultRoute",
+                    "path": "notejam-main-DEV/VPC/PublicSubnet1/DefaultRoute",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Route",
                       "aws:cdk:cloudformation:props": {
@@ -657,7 +657,7 @@
                   },
                   "EIP": {
                     "id": "EIP",
-                    "path": "notejam-DEV/VPC/PublicSubnet1/EIP",
+                    "path": "notejam-main-DEV/VPC/PublicSubnet1/EIP",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::EIP",
                       "aws:cdk:cloudformation:props": {
@@ -665,7 +665,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "notejam-DEV/VPC/PublicSubnet1"
+                            "value": "notejam-main-DEV/VPC/PublicSubnet1"
                           }
                         ]
                       }
@@ -677,7 +677,7 @@
                   },
                   "NATGateway": {
                     "id": "NATGateway",
-                    "path": "notejam-DEV/VPC/PublicSubnet1/NATGateway",
+                    "path": "notejam-main-DEV/VPC/PublicSubnet1/NATGateway",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::NatGateway",
                       "aws:cdk:cloudformation:props": {
@@ -693,7 +693,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "notejam-DEV/VPC/PublicSubnet1"
+                            "value": "notejam-main-DEV/VPC/PublicSubnet1"
                           }
                         ]
                       }
@@ -711,11 +711,11 @@
               },
               "PublicSubnet2": {
                 "id": "PublicSubnet2",
-                "path": "notejam-DEV/VPC/PublicSubnet2",
+                "path": "notejam-main-DEV/VPC/PublicSubnet2",
                 "children": {
                   "Subnet": {
                     "id": "Subnet",
-                    "path": "notejam-DEV/VPC/PublicSubnet2/Subnet",
+                    "path": "notejam-main-DEV/VPC/PublicSubnet2/Subnet",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
                       "aws:cdk:cloudformation:props": {
@@ -736,7 +736,7 @@
                           },
                           {
                             "key": "Name",
-                            "value": "notejam-DEV/VPC/PublicSubnet2"
+                            "value": "notejam-main-DEV/VPC/PublicSubnet2"
                           }
                         ]
                       }
@@ -748,7 +748,7 @@
                   },
                   "Acl": {
                     "id": "Acl",
-                    "path": "notejam-DEV/VPC/PublicSubnet2/Acl",
+                    "path": "notejam-main-DEV/VPC/PublicSubnet2/Acl",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Resource",
                       "version": "1.93.0"
@@ -756,7 +756,7 @@
                   },
                   "RouteTable": {
                     "id": "RouteTable",
-                    "path": "notejam-DEV/VPC/PublicSubnet2/RouteTable",
+                    "path": "notejam-main-DEV/VPC/PublicSubnet2/RouteTable",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
                       "aws:cdk:cloudformation:props": {
@@ -766,7 +766,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "notejam-DEV/VPC/PublicSubnet2"
+                            "value": "notejam-main-DEV/VPC/PublicSubnet2"
                           }
                         ]
                       }
@@ -778,7 +778,7 @@
                   },
                   "RouteTableAssociation": {
                     "id": "RouteTableAssociation",
-                    "path": "notejam-DEV/VPC/PublicSubnet2/RouteTableAssociation",
+                    "path": "notejam-main-DEV/VPC/PublicSubnet2/RouteTableAssociation",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
                       "aws:cdk:cloudformation:props": {
@@ -797,7 +797,7 @@
                   },
                   "DefaultRoute": {
                     "id": "DefaultRoute",
-                    "path": "notejam-DEV/VPC/PublicSubnet2/DefaultRoute",
+                    "path": "notejam-main-DEV/VPC/PublicSubnet2/DefaultRoute",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Route",
                       "aws:cdk:cloudformation:props": {
@@ -817,7 +817,7 @@
                   },
                   "EIP": {
                     "id": "EIP",
-                    "path": "notejam-DEV/VPC/PublicSubnet2/EIP",
+                    "path": "notejam-main-DEV/VPC/PublicSubnet2/EIP",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::EIP",
                       "aws:cdk:cloudformation:props": {
@@ -825,7 +825,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "notejam-DEV/VPC/PublicSubnet2"
+                            "value": "notejam-main-DEV/VPC/PublicSubnet2"
                           }
                         ]
                       }
@@ -837,7 +837,7 @@
                   },
                   "NATGateway": {
                     "id": "NATGateway",
-                    "path": "notejam-DEV/VPC/PublicSubnet2/NATGateway",
+                    "path": "notejam-main-DEV/VPC/PublicSubnet2/NATGateway",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::NatGateway",
                       "aws:cdk:cloudformation:props": {
@@ -853,7 +853,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "notejam-DEV/VPC/PublicSubnet2"
+                            "value": "notejam-main-DEV/VPC/PublicSubnet2"
                           }
                         ]
                       }
@@ -871,11 +871,11 @@
               },
               "PublicSubnet3": {
                 "id": "PublicSubnet3",
-                "path": "notejam-DEV/VPC/PublicSubnet3",
+                "path": "notejam-main-DEV/VPC/PublicSubnet3",
                 "children": {
                   "Subnet": {
                     "id": "Subnet",
-                    "path": "notejam-DEV/VPC/PublicSubnet3/Subnet",
+                    "path": "notejam-main-DEV/VPC/PublicSubnet3/Subnet",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
                       "aws:cdk:cloudformation:props": {
@@ -896,7 +896,7 @@
                           },
                           {
                             "key": "Name",
-                            "value": "notejam-DEV/VPC/PublicSubnet3"
+                            "value": "notejam-main-DEV/VPC/PublicSubnet3"
                           }
                         ]
                       }
@@ -908,7 +908,7 @@
                   },
                   "Acl": {
                     "id": "Acl",
-                    "path": "notejam-DEV/VPC/PublicSubnet3/Acl",
+                    "path": "notejam-main-DEV/VPC/PublicSubnet3/Acl",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Resource",
                       "version": "1.93.0"
@@ -916,7 +916,7 @@
                   },
                   "RouteTable": {
                     "id": "RouteTable",
-                    "path": "notejam-DEV/VPC/PublicSubnet3/RouteTable",
+                    "path": "notejam-main-DEV/VPC/PublicSubnet3/RouteTable",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
                       "aws:cdk:cloudformation:props": {
@@ -926,7 +926,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "notejam-DEV/VPC/PublicSubnet3"
+                            "value": "notejam-main-DEV/VPC/PublicSubnet3"
                           }
                         ]
                       }
@@ -938,7 +938,7 @@
                   },
                   "RouteTableAssociation": {
                     "id": "RouteTableAssociation",
-                    "path": "notejam-DEV/VPC/PublicSubnet3/RouteTableAssociation",
+                    "path": "notejam-main-DEV/VPC/PublicSubnet3/RouteTableAssociation",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
                       "aws:cdk:cloudformation:props": {
@@ -957,7 +957,7 @@
                   },
                   "DefaultRoute": {
                     "id": "DefaultRoute",
-                    "path": "notejam-DEV/VPC/PublicSubnet3/DefaultRoute",
+                    "path": "notejam-main-DEV/VPC/PublicSubnet3/DefaultRoute",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Route",
                       "aws:cdk:cloudformation:props": {
@@ -977,7 +977,7 @@
                   },
                   "EIP": {
                     "id": "EIP",
-                    "path": "notejam-DEV/VPC/PublicSubnet3/EIP",
+                    "path": "notejam-main-DEV/VPC/PublicSubnet3/EIP",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::EIP",
                       "aws:cdk:cloudformation:props": {
@@ -985,7 +985,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "notejam-DEV/VPC/PublicSubnet3"
+                            "value": "notejam-main-DEV/VPC/PublicSubnet3"
                           }
                         ]
                       }
@@ -997,7 +997,7 @@
                   },
                   "NATGateway": {
                     "id": "NATGateway",
-                    "path": "notejam-DEV/VPC/PublicSubnet3/NATGateway",
+                    "path": "notejam-main-DEV/VPC/PublicSubnet3/NATGateway",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::NatGateway",
                       "aws:cdk:cloudformation:props": {
@@ -1013,7 +1013,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "notejam-DEV/VPC/PublicSubnet3"
+                            "value": "notejam-main-DEV/VPC/PublicSubnet3"
                           }
                         ]
                       }
@@ -1031,11 +1031,11 @@
               },
               "PrivateSubnet1": {
                 "id": "PrivateSubnet1",
-                "path": "notejam-DEV/VPC/PrivateSubnet1",
+                "path": "notejam-main-DEV/VPC/PrivateSubnet1",
                 "children": {
                   "Subnet": {
                     "id": "Subnet",
-                    "path": "notejam-DEV/VPC/PrivateSubnet1/Subnet",
+                    "path": "notejam-main-DEV/VPC/PrivateSubnet1/Subnet",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
                       "aws:cdk:cloudformation:props": {
@@ -1056,7 +1056,7 @@
                           },
                           {
                             "key": "Name",
-                            "value": "notejam-DEV/VPC/PrivateSubnet1"
+                            "value": "notejam-main-DEV/VPC/PrivateSubnet1"
                           }
                         ]
                       }
@@ -1068,7 +1068,7 @@
                   },
                   "Acl": {
                     "id": "Acl",
-                    "path": "notejam-DEV/VPC/PrivateSubnet1/Acl",
+                    "path": "notejam-main-DEV/VPC/PrivateSubnet1/Acl",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Resource",
                       "version": "1.93.0"
@@ -1076,7 +1076,7 @@
                   },
                   "RouteTable": {
                     "id": "RouteTable",
-                    "path": "notejam-DEV/VPC/PrivateSubnet1/RouteTable",
+                    "path": "notejam-main-DEV/VPC/PrivateSubnet1/RouteTable",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
                       "aws:cdk:cloudformation:props": {
@@ -1086,7 +1086,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "notejam-DEV/VPC/PrivateSubnet1"
+                            "value": "notejam-main-DEV/VPC/PrivateSubnet1"
                           }
                         ]
                       }
@@ -1098,7 +1098,7 @@
                   },
                   "RouteTableAssociation": {
                     "id": "RouteTableAssociation",
-                    "path": "notejam-DEV/VPC/PrivateSubnet1/RouteTableAssociation",
+                    "path": "notejam-main-DEV/VPC/PrivateSubnet1/RouteTableAssociation",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
                       "aws:cdk:cloudformation:props": {
@@ -1117,7 +1117,7 @@
                   },
                   "DefaultRoute": {
                     "id": "DefaultRoute",
-                    "path": "notejam-DEV/VPC/PrivateSubnet1/DefaultRoute",
+                    "path": "notejam-main-DEV/VPC/PrivateSubnet1/DefaultRoute",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Route",
                       "aws:cdk:cloudformation:props": {
@@ -1143,11 +1143,11 @@
               },
               "PrivateSubnet2": {
                 "id": "PrivateSubnet2",
-                "path": "notejam-DEV/VPC/PrivateSubnet2",
+                "path": "notejam-main-DEV/VPC/PrivateSubnet2",
                 "children": {
                   "Subnet": {
                     "id": "Subnet",
-                    "path": "notejam-DEV/VPC/PrivateSubnet2/Subnet",
+                    "path": "notejam-main-DEV/VPC/PrivateSubnet2/Subnet",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
                       "aws:cdk:cloudformation:props": {
@@ -1168,7 +1168,7 @@
                           },
                           {
                             "key": "Name",
-                            "value": "notejam-DEV/VPC/PrivateSubnet2"
+                            "value": "notejam-main-DEV/VPC/PrivateSubnet2"
                           }
                         ]
                       }
@@ -1180,7 +1180,7 @@
                   },
                   "Acl": {
                     "id": "Acl",
-                    "path": "notejam-DEV/VPC/PrivateSubnet2/Acl",
+                    "path": "notejam-main-DEV/VPC/PrivateSubnet2/Acl",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Resource",
                       "version": "1.93.0"
@@ -1188,7 +1188,7 @@
                   },
                   "RouteTable": {
                     "id": "RouteTable",
-                    "path": "notejam-DEV/VPC/PrivateSubnet2/RouteTable",
+                    "path": "notejam-main-DEV/VPC/PrivateSubnet2/RouteTable",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
                       "aws:cdk:cloudformation:props": {
@@ -1198,7 +1198,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "notejam-DEV/VPC/PrivateSubnet2"
+                            "value": "notejam-main-DEV/VPC/PrivateSubnet2"
                           }
                         ]
                       }
@@ -1210,7 +1210,7 @@
                   },
                   "RouteTableAssociation": {
                     "id": "RouteTableAssociation",
-                    "path": "notejam-DEV/VPC/PrivateSubnet2/RouteTableAssociation",
+                    "path": "notejam-main-DEV/VPC/PrivateSubnet2/RouteTableAssociation",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
                       "aws:cdk:cloudformation:props": {
@@ -1229,7 +1229,7 @@
                   },
                   "DefaultRoute": {
                     "id": "DefaultRoute",
-                    "path": "notejam-DEV/VPC/PrivateSubnet2/DefaultRoute",
+                    "path": "notejam-main-DEV/VPC/PrivateSubnet2/DefaultRoute",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Route",
                       "aws:cdk:cloudformation:props": {
@@ -1255,11 +1255,11 @@
               },
               "PrivateSubnet3": {
                 "id": "PrivateSubnet3",
-                "path": "notejam-DEV/VPC/PrivateSubnet3",
+                "path": "notejam-main-DEV/VPC/PrivateSubnet3",
                 "children": {
                   "Subnet": {
                     "id": "Subnet",
-                    "path": "notejam-DEV/VPC/PrivateSubnet3/Subnet",
+                    "path": "notejam-main-DEV/VPC/PrivateSubnet3/Subnet",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Subnet",
                       "aws:cdk:cloudformation:props": {
@@ -1280,7 +1280,7 @@
                           },
                           {
                             "key": "Name",
-                            "value": "notejam-DEV/VPC/PrivateSubnet3"
+                            "value": "notejam-main-DEV/VPC/PrivateSubnet3"
                           }
                         ]
                       }
@@ -1292,7 +1292,7 @@
                   },
                   "Acl": {
                     "id": "Acl",
-                    "path": "notejam-DEV/VPC/PrivateSubnet3/Acl",
+                    "path": "notejam-main-DEV/VPC/PrivateSubnet3/Acl",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Resource",
                       "version": "1.93.0"
@@ -1300,7 +1300,7 @@
                   },
                   "RouteTable": {
                     "id": "RouteTable",
-                    "path": "notejam-DEV/VPC/PrivateSubnet3/RouteTable",
+                    "path": "notejam-main-DEV/VPC/PrivateSubnet3/RouteTable",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::RouteTable",
                       "aws:cdk:cloudformation:props": {
@@ -1310,7 +1310,7 @@
                         "tags": [
                           {
                             "key": "Name",
-                            "value": "notejam-DEV/VPC/PrivateSubnet3"
+                            "value": "notejam-main-DEV/VPC/PrivateSubnet3"
                           }
                         ]
                       }
@@ -1322,7 +1322,7 @@
                   },
                   "RouteTableAssociation": {
                     "id": "RouteTableAssociation",
-                    "path": "notejam-DEV/VPC/PrivateSubnet3/RouteTableAssociation",
+                    "path": "notejam-main-DEV/VPC/PrivateSubnet3/RouteTableAssociation",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SubnetRouteTableAssociation",
                       "aws:cdk:cloudformation:props": {
@@ -1341,7 +1341,7 @@
                   },
                   "DefaultRoute": {
                     "id": "DefaultRoute",
-                    "path": "notejam-DEV/VPC/PrivateSubnet3/DefaultRoute",
+                    "path": "notejam-main-DEV/VPC/PrivateSubnet3/DefaultRoute",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::Route",
                       "aws:cdk:cloudformation:props": {
@@ -1367,14 +1367,14 @@
               },
               "IGW": {
                 "id": "IGW",
-                "path": "notejam-DEV/VPC/IGW",
+                "path": "notejam-main-DEV/VPC/IGW",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::InternetGateway",
                   "aws:cdk:cloudformation:props": {
                     "tags": [
                       {
                         "key": "Name",
-                        "value": "notejam-DEV/VPC"
+                        "value": "notejam-main-DEV/VPC"
                       }
                     ]
                   }
@@ -1386,7 +1386,7 @@
               },
               "VPCGW": {
                 "id": "VPCGW",
-                "path": "notejam-DEV/VPC/VPCGW",
+                "path": "notejam-main-DEV/VPC/VPCGW",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::VPCGatewayAttachment",
                   "aws:cdk:cloudformation:props": {
@@ -1411,15 +1411,15 @@
           },
           "PSQL Security Group": {
             "id": "PSQL Security Group",
-            "path": "notejam-DEV/PSQL Security Group",
+            "path": "notejam-main-DEV/PSQL Security Group",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "notejam-DEV/PSQL Security Group/Resource",
+                "path": "notejam-main-DEV/PSQL Security Group/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroup",
                   "aws:cdk:cloudformation:props": {
-                    "groupDescription": "notejam-DEV/PSQL Security Group",
+                    "groupDescription": "notejam-main-DEV/PSQL Security Group",
                     "securityGroupEgress": [
                       {
                         "cidrIp": "0.0.0.0/0",
@@ -1437,14 +1437,14 @@
                   "version": "1.93.0"
                 }
               },
-              "from notejamDEVContainerSecurityGroupEEB59E23:5432": {
-                "id": "from notejamDEVContainerSecurityGroupEEB59E23:5432",
-                "path": "notejam-DEV/PSQL Security Group/from notejamDEVContainerSecurityGroupEEB59E23:5432",
+              "from notejammainDEVContainerSecurityGroup0BFCD920:5432": {
+                "id": "from notejammainDEVContainerSecurityGroup0BFCD920:5432",
+                "path": "notejam-main-DEV/PSQL Security Group/from notejammainDEVContainerSecurityGroup0BFCD920:5432",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupIngress",
                   "aws:cdk:cloudformation:props": {
                     "ipProtocol": "tcp",
-                    "description": "from notejamDEVContainerSecurityGroupEEB59E23:5432",
+                    "description": "from notejammainDEVContainerSecurityGroup0BFCD920:5432",
                     "fromPort": 5432,
                     "groupId": {
                       "Fn::GetAtt": [
@@ -1474,15 +1474,15 @@
           },
           "Container Security Group": {
             "id": "Container Security Group",
-            "path": "notejam-DEV/Container Security Group",
+            "path": "notejam-main-DEV/Container Security Group",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "notejam-DEV/Container Security Group/Resource",
+                "path": "notejam-main-DEV/Container Security Group/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroup",
                   "aws:cdk:cloudformation:props": {
-                    "groupDescription": "notejam-DEV/Container Security Group",
+                    "groupDescription": "notejam-main-DEV/Container Security Group",
                     "securityGroupEgress": [
                       {
                         "cidrIp": "0.0.0.0/0",
@@ -1500,14 +1500,14 @@
                   "version": "1.93.0"
                 }
               },
-              "from notejamDEVALBSecurityGroupD98A325F:5000": {
-                "id": "from notejamDEVALBSecurityGroupD98A325F:5000",
-                "path": "notejam-DEV/Container Security Group/from notejamDEVALBSecurityGroupD98A325F:5000",
+              "from notejammainDEVALBSecurityGroupBC57E02F:5000": {
+                "id": "from notejammainDEVALBSecurityGroupBC57E02F:5000",
+                "path": "notejam-main-DEV/Container Security Group/from notejammainDEVALBSecurityGroupBC57E02F:5000",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupIngress",
                   "aws:cdk:cloudformation:props": {
                     "ipProtocol": "tcp",
-                    "description": "from notejamDEVALBSecurityGroupD98A325F:5000",
+                    "description": "from notejammainDEVALBSecurityGroupBC57E02F:5000",
                     "fromPort": 5000,
                     "groupId": {
                       "Fn::GetAtt": [
@@ -1537,15 +1537,15 @@
           },
           "ALB Security Group": {
             "id": "ALB Security Group",
-            "path": "notejam-DEV/ALB Security Group",
+            "path": "notejam-main-DEV/ALB Security Group",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "notejam-DEV/ALB Security Group/Resource",
+                "path": "notejam-main-DEV/ALB Security Group/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroup",
                   "aws:cdk:cloudformation:props": {
-                    "groupDescription": "notejam-DEV/ALB Security Group",
+                    "groupDescription": "notejam-main-DEV/ALB Security Group",
                     "securityGroupEgress": [
                       {
                         "cidrIp": "0.0.0.0/0",
@@ -1580,7 +1580,7 @@
           },
           "DB Subnet Group": {
             "id": "DB Subnet Group",
-            "path": "notejam-DEV/DB Subnet Group",
+            "path": "notejam-main-DEV/DB Subnet Group",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::RDS::DBSubnetGroup",
               "aws:cdk:cloudformation:props": {
@@ -1606,7 +1606,7 @@
           },
           "PostgreSQL Cluster": {
             "id": "PostgreSQL Cluster",
-            "path": "notejam-DEV/PostgreSQL Cluster",
+            "path": "notejam-main-DEV/PostgreSQL Cluster",
             "attributes": {
               "aws:cdk:cloudformation:type": "AWS::RDS::DBCluster",
               "aws:cdk:cloudformation:props": {
@@ -1617,7 +1617,7 @@
                 "dbSubnetGroupName": "notejamdev",
                 "engineMode": "serverless",
                 "masterUsername": "postgres",
-                "masterUserPassword": "D3O92IN8RF4Y",
+                "masterUserPassword": "GUVE2ZL31KK4",
                 "port": 5432,
                 "vpcSecurityGroupIds": [
                   {
@@ -1636,7 +1636,7 @@
           },
           "Aurora Cluster Endpoint": {
             "id": "Aurora Cluster Endpoint",
-            "path": "notejam-DEV/Aurora Cluster Endpoint",
+            "path": "notejam-main-DEV/Aurora Cluster Endpoint",
             "constructInfo": {
               "fqn": "@aws-cdk/core.CfnOutput",
               "version": "1.93.0"
@@ -1644,11 +1644,11 @@
           },
           "Dev Policy": {
             "id": "Dev Policy",
-            "path": "notejam-DEV/Dev Policy",
+            "path": "notejam-main-DEV/Dev Policy",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "notejam-DEV/Dev Policy/Resource",
+                "path": "notejam-main-DEV/Dev Policy/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::IAM::ManagedPolicy",
                   "aws:cdk:cloudformation:props": {
@@ -1683,11 +1683,11 @@
           },
           "Dev Group": {
             "id": "Dev Group",
-            "path": "notejam-DEV/Dev Group",
+            "path": "notejam-main-DEV/Dev Group",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "notejam-DEV/Dev Group/Resource",
+                "path": "notejam-main-DEV/Dev Group/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::IAM::Group",
                   "aws:cdk:cloudformation:props": {
@@ -1712,11 +1712,11 @@
           },
           "MyCluster": {
             "id": "MyCluster",
-            "path": "notejam-DEV/MyCluster",
+            "path": "notejam-main-DEV/MyCluster",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "notejam-DEV/MyCluster/Resource",
+                "path": "notejam-main-DEV/MyCluster/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::ECS::Cluster",
                   "aws:cdk:cloudformation:props": {
@@ -1736,15 +1736,15 @@
           },
           "Task Definition": {
             "id": "Task Definition",
-            "path": "notejam-DEV/Task Definition",
+            "path": "notejam-main-DEV/Task Definition",
             "children": {
               "TaskRole": {
                 "id": "TaskRole",
-                "path": "notejam-DEV/Task Definition/TaskRole",
+                "path": "notejam-main-DEV/Task Definition/TaskRole",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "notejam-DEV/Task Definition/TaskRole/Resource",
+                    "path": "notejam-main-DEV/Task Definition/TaskRole/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                       "aws:cdk:cloudformation:props": {
@@ -1775,7 +1775,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "notejam-DEV/Task Definition/Resource",
+                "path": "notejam-main-DEV/Task Definition/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::ECS::TaskDefinition",
                   "aws:cdk:cloudformation:props": {
@@ -1845,7 +1845,7 @@
                             "awslogs-group": {
                               "Ref": "TaskDefinitionnotejamdevLogGroupB43E6932"
                             },
-                            "awslogs-stream-prefix": "notejamcontainer",
+                            "awslogs-stream-prefix": "notejamdevcontainer",
                             "awslogs-region": "eu-west-1"
                           }
                         },
@@ -1860,7 +1860,7 @@
                               "Fn::Join": [
                                 "",
                                 [
-                                  "postgresql://postgres:D3O92IN8RF4Y@",
+                                  "postgresql://postgres:GUVE2ZL31KK4@",
                                   {
                                     "Fn::GetAtt": [
                                       "PostgreSQLCluster",
@@ -1882,7 +1882,7 @@
                         "Arn"
                       ]
                     },
-                    "family": "notejamDEVTaskDefinition6B7E1824",
+                    "family": "notejammainDEVTaskDefinition99AC3491",
                     "memory": "512",
                     "networkMode": "awsvpc",
                     "requiresCompatibilities": [
@@ -1903,15 +1903,15 @@
               },
               "notejamdev": {
                 "id": "notejamdev",
-                "path": "notejam-DEV/Task Definition/notejamdev",
+                "path": "notejam-main-DEV/Task Definition/notejamdev",
                 "children": {
                   "LogGroup": {
                     "id": "LogGroup",
-                    "path": "notejam-DEV/Task Definition/notejamdev/LogGroup",
+                    "path": "notejam-main-DEV/Task Definition/notejamdev/LogGroup",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "notejam-DEV/Task Definition/notejamdev/LogGroup/Resource",
+                        "path": "notejam-main-DEV/Task Definition/notejamdev/LogGroup/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::Logs::LogGroup",
                           "aws:cdk:cloudformation:props": {}
@@ -1935,11 +1935,11 @@
               },
               "ExecutionRole": {
                 "id": "ExecutionRole",
-                "path": "notejam-DEV/Task Definition/ExecutionRole",
+                "path": "notejam-main-DEV/Task Definition/ExecutionRole",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "notejam-DEV/Task Definition/ExecutionRole/Resource",
+                    "path": "notejam-main-DEV/Task Definition/ExecutionRole/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                       "aws:cdk:cloudformation:props": {
@@ -1964,11 +1964,11 @@
                   },
                   "DefaultPolicy": {
                     "id": "DefaultPolicy",
-                    "path": "notejam-DEV/Task Definition/ExecutionRole/DefaultPolicy",
+                    "path": "notejam-main-DEV/Task Definition/ExecutionRole/DefaultPolicy",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "notejam-DEV/Task Definition/ExecutionRole/DefaultPolicy/Resource",
+                        "path": "notejam-main-DEV/Task Definition/ExecutionRole/DefaultPolicy/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                           "aws:cdk:cloudformation:props": {
@@ -2042,11 +2042,11 @@
           },
           "Service": {
             "id": "Service",
-            "path": "notejam-DEV/Service",
+            "path": "notejam-main-DEV/Service",
             "children": {
               "Service": {
                 "id": "Service",
-                "path": "notejam-DEV/Service/Service",
+                "path": "notejam-main-DEV/Service/Service",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::ECS::Service",
                   "aws:cdk:cloudformation:props": {
@@ -2064,7 +2064,7 @@
                     "loadBalancers": [
                       {
                         "targetGroupArn": {
-                          "Ref": "NotejamALBHTTPListenerECSGroup9487A8E7"
+                          "Ref": "notejamALBHTTPListenerECSGroup0CF5EBD5"
                         },
                         "containerName": "notejamdev",
                         "containerPort": 5000
@@ -2111,13 +2111,13 @@
               "version": "1.93.0"
             }
           },
-          "Notejam ALB": {
-            "id": "Notejam ALB",
-            "path": "notejam-DEV/Notejam ALB",
+          "notejam ALB": {
+            "id": "notejam ALB",
+            "path": "notejam-main-DEV/notejam ALB",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "notejam-DEV/Notejam ALB/Resource",
+                "path": "notejam-main-DEV/notejam ALB/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
                   "aws:cdk:cloudformation:props": {
@@ -2158,11 +2158,11 @@
               },
               "HTTP Listener": {
                 "id": "HTTP Listener",
-                "path": "notejam-DEV/Notejam ALB/HTTP Listener",
+                "path": "notejam-main-DEV/notejam ALB/HTTP Listener",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "notejam-DEV/Notejam ALB/HTTP Listener/Resource",
+                    "path": "notejam-main-DEV/notejam ALB/HTTP Listener/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::Listener",
                       "aws:cdk:cloudformation:props": {
@@ -2170,12 +2170,12 @@
                           {
                             "type": "forward",
                             "targetGroupArn": {
-                              "Ref": "NotejamALBHTTPListenerECSGroup9487A8E7"
+                              "Ref": "notejamALBHTTPListenerECSGroup0CF5EBD5"
                             }
                           }
                         ],
                         "loadBalancerArn": {
-                          "Ref": "NotejamALBE2229524"
+                          "Ref": "notejamALB0ABF49E5"
                         },
                         "port": 80,
                         "protocol": "HTTP"
@@ -2188,11 +2188,11 @@
                   },
                   "ECSGroup": {
                     "id": "ECSGroup",
-                    "path": "notejam-DEV/Notejam ALB/HTTP Listener/ECSGroup",
+                    "path": "notejam-main-DEV/notejam ALB/HTTP Listener/ECSGroup",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "notejam-DEV/Notejam ALB/HTTP Listener/ECSGroup/Resource",
+                        "path": "notejam-main-DEV/notejam ALB/HTTP Listener/ECSGroup/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::TargetGroup",
                           "aws:cdk:cloudformation:props": {
@@ -2232,7 +2232,7 @@
           },
           "DNS": {
             "id": "DNS",
-            "path": "notejam-DEV/DNS",
+            "path": "notejam-main-DEV/DNS",
             "constructInfo": {
               "fqn": "@aws-cdk/core.CfnOutput",
               "version": "1.93.0"
@@ -2240,15 +2240,15 @@
           },
           "Repository": {
             "id": "Repository",
-            "path": "notejam-DEV/Repository",
+            "path": "notejam-main-DEV/Repository",
             "children": {
-              "notejamDEVPipeline18A9F00DEventRule": {
-                "id": "notejamDEVPipeline18A9F00DEventRule",
-                "path": "notejam-DEV/Repository/notejamDEVPipeline18A9F00DEventRule",
+              "notejammainDEVPipeline5DCC56B4EventRule": {
+                "id": "notejammainDEVPipeline5DCC56B4EventRule",
+                "path": "notejam-main-DEV/Repository/notejammainDEVPipeline5DCC56B4EventRule",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "notejam-DEV/Repository/notejamDEVPipeline18A9F00DEventRule/Resource",
+                    "path": "notejam-main-DEV/Repository/notejammainDEVPipeline5DCC56B4EventRule/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::Events::Rule",
                       "aws:cdk:cloudformation:props": {
@@ -2331,7 +2331,7 @@
           },
           "Repo HTTP URL": {
             "id": "Repo HTTP URL",
-            "path": "notejam-DEV/Repo HTTP URL",
+            "path": "notejam-main-DEV/Repo HTTP URL",
             "constructInfo": {
               "fqn": "@aws-cdk/core.CfnOutput",
               "version": "1.93.0"
@@ -2339,15 +2339,15 @@
           },
           "Pipeline": {
             "id": "Pipeline",
-            "path": "notejam-DEV/Pipeline",
+            "path": "notejam-main-DEV/Pipeline",
             "children": {
               "ArtifactsBucketEncryptionKey": {
                 "id": "ArtifactsBucketEncryptionKey",
-                "path": "notejam-DEV/Pipeline/ArtifactsBucketEncryptionKey",
+                "path": "notejam-main-DEV/Pipeline/ArtifactsBucketEncryptionKey",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "notejam-DEV/Pipeline/ArtifactsBucketEncryptionKey/Resource",
+                    "path": "notejam-main-DEV/Pipeline/ArtifactsBucketEncryptionKey/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::KMS::Key",
                       "aws:cdk:cloudformation:props": {
@@ -2390,15 +2390,15 @@
               },
               "ArtifactsBucketEncryptionKeyAlias": {
                 "id": "ArtifactsBucketEncryptionKeyAlias",
-                "path": "notejam-DEV/Pipeline/ArtifactsBucketEncryptionKeyAlias",
+                "path": "notejam-main-DEV/Pipeline/ArtifactsBucketEncryptionKeyAlias",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "notejam-DEV/Pipeline/ArtifactsBucketEncryptionKeyAlias/Resource",
+                    "path": "notejam-main-DEV/Pipeline/ArtifactsBucketEncryptionKeyAlias/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::KMS::Alias",
                       "aws:cdk:cloudformation:props": {
-                        "aliasName": "alias/codepipeline-notejamdevpipeline18a9f00d",
+                        "aliasName": "alias/codepipeline-notejammaindevpipeline5dcc56b4",
                         "targetKeyId": {
                           "Fn::GetAtt": [
                             "PipelineArtifactsBucketEncryptionKey01D58D69",
@@ -2420,11 +2420,11 @@
               },
               "ArtifactsBucket": {
                 "id": "ArtifactsBucket",
-                "path": "notejam-DEV/Pipeline/ArtifactsBucket",
+                "path": "notejam-main-DEV/Pipeline/ArtifactsBucket",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "notejam-DEV/Pipeline/ArtifactsBucket/Resource",
+                    "path": "notejam-main-DEV/Pipeline/ArtifactsBucket/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
                       "aws:cdk:cloudformation:props": {
@@ -2458,7 +2458,7 @@
                   },
                   "Notifications": {
                     "id": "Notifications",
-                    "path": "notejam-DEV/Pipeline/ArtifactsBucket/Notifications",
+                    "path": "notejam-main-DEV/Pipeline/ArtifactsBucket/Notifications",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Construct",
                       "version": "1.93.0"
@@ -2472,11 +2472,11 @@
               },
               "Role": {
                 "id": "Role",
-                "path": "notejam-DEV/Pipeline/Role",
+                "path": "notejam-main-DEV/Pipeline/Role",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "notejam-DEV/Pipeline/Role/Resource",
+                    "path": "notejam-main-DEV/Pipeline/Role/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                       "aws:cdk:cloudformation:props": {
@@ -2501,11 +2501,11 @@
                   },
                   "DefaultPolicy": {
                     "id": "DefaultPolicy",
-                    "path": "notejam-DEV/Pipeline/Role/DefaultPolicy",
+                    "path": "notejam-main-DEV/Pipeline/Role/DefaultPolicy",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "notejam-DEV/Pipeline/Role/DefaultPolicy/Resource",
+                        "path": "notejam-main-DEV/Pipeline/Role/DefaultPolicy/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                           "aws:cdk:cloudformation:props": {
@@ -2620,7 +2620,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "notejam-DEV/Pipeline/Resource",
+                "path": "notejam-main-DEV/Pipeline/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::CodePipeline::Pipeline",
                   "aws:cdk:cloudformation:props": {
@@ -2760,19 +2760,19 @@
               },
               "Source": {
                 "id": "Source",
-                "path": "notejam-DEV/Pipeline/Source",
+                "path": "notejam-main-DEV/Pipeline/Source",
                 "children": {
                   "Source": {
                     "id": "Source",
-                    "path": "notejam-DEV/Pipeline/Source/Source",
+                    "path": "notejam-main-DEV/Pipeline/Source/Source",
                     "children": {
                       "CodePipelineActionRole": {
                         "id": "CodePipelineActionRole",
-                        "path": "notejam-DEV/Pipeline/Source/Source/CodePipelineActionRole",
+                        "path": "notejam-main-DEV/Pipeline/Source/Source/CodePipelineActionRole",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "notejam-DEV/Pipeline/Source/Source/CodePipelineActionRole/Resource",
+                            "path": "notejam-main-DEV/Pipeline/Source/Source/CodePipelineActionRole/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                               "aws:cdk:cloudformation:props": {
@@ -2808,11 +2808,11 @@
                           },
                           "DefaultPolicy": {
                             "id": "DefaultPolicy",
-                            "path": "notejam-DEV/Pipeline/Source/Source/CodePipelineActionRole/DefaultPolicy",
+                            "path": "notejam-main-DEV/Pipeline/Source/Source/CodePipelineActionRole/DefaultPolicy",
                             "children": {
                               "Resource": {
                                 "id": "Resource",
-                                "path": "notejam-DEV/Pipeline/Source/Source/CodePipelineActionRole/DefaultPolicy/Resource",
+                                "path": "notejam-main-DEV/Pipeline/Source/Source/CodePipelineActionRole/DefaultPolicy/Resource",
                                 "attributes": {
                                   "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                                   "aws:cdk:cloudformation:props": {
@@ -2931,11 +2931,11 @@
               },
               "EventsRole": {
                 "id": "EventsRole",
-                "path": "notejam-DEV/Pipeline/EventsRole",
+                "path": "notejam-main-DEV/Pipeline/EventsRole",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "notejam-DEV/Pipeline/EventsRole/Resource",
+                    "path": "notejam-main-DEV/Pipeline/EventsRole/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                       "aws:cdk:cloudformation:props": {
@@ -2960,11 +2960,11 @@
                   },
                   "DefaultPolicy": {
                     "id": "DefaultPolicy",
-                    "path": "notejam-DEV/Pipeline/EventsRole/DefaultPolicy",
+                    "path": "notejam-main-DEV/Pipeline/EventsRole/DefaultPolicy",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "notejam-DEV/Pipeline/EventsRole/DefaultPolicy/Resource",
+                        "path": "notejam-main-DEV/Pipeline/EventsRole/DefaultPolicy/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                           "aws:cdk:cloudformation:props": {
@@ -3019,19 +3019,19 @@
               },
               "Build": {
                 "id": "Build",
-                "path": "notejam-DEV/Pipeline/Build",
+                "path": "notejam-main-DEV/Pipeline/Build",
                 "children": {
                   "Build": {
                     "id": "Build",
-                    "path": "notejam-DEV/Pipeline/Build/Build",
+                    "path": "notejam-main-DEV/Pipeline/Build/Build",
                     "children": {
                       "CodePipelineActionRole": {
                         "id": "CodePipelineActionRole",
-                        "path": "notejam-DEV/Pipeline/Build/Build/CodePipelineActionRole",
+                        "path": "notejam-main-DEV/Pipeline/Build/Build/CodePipelineActionRole",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "notejam-DEV/Pipeline/Build/Build/CodePipelineActionRole/Resource",
+                            "path": "notejam-main-DEV/Pipeline/Build/Build/CodePipelineActionRole/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                               "aws:cdk:cloudformation:props": {
@@ -3067,11 +3067,11 @@
                           },
                           "DefaultPolicy": {
                             "id": "DefaultPolicy",
-                            "path": "notejam-DEV/Pipeline/Build/Build/CodePipelineActionRole/DefaultPolicy",
+                            "path": "notejam-main-DEV/Pipeline/Build/Build/CodePipelineActionRole/DefaultPolicy",
                             "children": {
                               "Resource": {
                                 "id": "Resource",
-                                "path": "notejam-DEV/Pipeline/Build/Build/CodePipelineActionRole/DefaultPolicy/Resource",
+                                "path": "notejam-main-DEV/Pipeline/Build/Build/CodePipelineActionRole/DefaultPolicy/Resource",
                                 "attributes": {
                                   "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                                   "aws:cdk:cloudformation:props": {
@@ -3133,19 +3133,19 @@
               },
               "Deploy": {
                 "id": "Deploy",
-                "path": "notejam-DEV/Pipeline/Deploy",
+                "path": "notejam-main-DEV/Pipeline/Deploy",
                 "children": {
                   "Deploy": {
                     "id": "Deploy",
-                    "path": "notejam-DEV/Pipeline/Deploy/Deploy",
+                    "path": "notejam-main-DEV/Pipeline/Deploy/Deploy",
                     "children": {
                       "CodePipelineActionRole": {
                         "id": "CodePipelineActionRole",
-                        "path": "notejam-DEV/Pipeline/Deploy/Deploy/CodePipelineActionRole",
+                        "path": "notejam-main-DEV/Pipeline/Deploy/Deploy/CodePipelineActionRole",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "notejam-DEV/Pipeline/Deploy/Deploy/CodePipelineActionRole/Resource",
+                            "path": "notejam-main-DEV/Pipeline/Deploy/Deploy/CodePipelineActionRole/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                               "aws:cdk:cloudformation:props": {
@@ -3181,11 +3181,11 @@
                           },
                           "DefaultPolicy": {
                             "id": "DefaultPolicy",
-                            "path": "notejam-DEV/Pipeline/Deploy/Deploy/CodePipelineActionRole/DefaultPolicy",
+                            "path": "notejam-main-DEV/Pipeline/Deploy/Deploy/CodePipelineActionRole/DefaultPolicy",
                             "children": {
                               "Resource": {
                                 "id": "Resource",
-                                "path": "notejam-DEV/Pipeline/Deploy/Deploy/CodePipelineActionRole/DefaultPolicy/Resource",
+                                "path": "notejam-main-DEV/Pipeline/Deploy/Deploy/CodePipelineActionRole/DefaultPolicy/Resource",
                                 "attributes": {
                                   "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                                   "aws:cdk:cloudformation:props": {
@@ -3307,11 +3307,11 @@
           },
           "CDKMetadata": {
             "id": "CDKMetadata",
-            "path": "notejam-DEV/CDKMetadata",
+            "path": "notejam-main-DEV/CDKMetadata",
             "children": {
               "Default": {
                 "id": "Default",
-                "path": "notejam-DEV/CDKMetadata/Default",
+                "path": "notejam-main-DEV/CDKMetadata/Default",
                 "constructInfo": {
                   "fqn": "@aws-cdk/core.CfnResource",
                   "version": "1.93.0"

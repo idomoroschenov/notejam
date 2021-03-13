@@ -19,7 +19,7 @@ env = cdk.Environment(account=variables.account_id, region=variables.region)
 app = cdk.App()
 
 
-CodeCommitStack(app, 'CodeCommitRepo', env=env)
-NotejamStack(app, f"notejam-{variables.stage}", env=env)
+CodeCommitStack(app, 'notejam-repository', env=env)
+NotejamStack(app, f"notejam-main-{variables.stage}", env=env)
 
 app.synth()

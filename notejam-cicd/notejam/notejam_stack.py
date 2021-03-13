@@ -19,11 +19,20 @@ import string
 import json
 
 
+ecr_repo_name = 'notejam' + variables.stage.lower()
+buildspec_vars = {
+    'AWS_DEFAULT_REGION': codebuild.BuildEnvironmentVariable(value=variables.region),
+    'AWS_ACCOUNT_ID': codebuild.BuildEnvironmentVariable(value=variables.account_id),
+    'IMAGE_TAG': codebuild.BuildEnvironmentVariable(value='latest'),
+    'IMAGE_REPO_NAME': codebuild.BuildEnvironmentVariable(value=ecr_repo_name)
+}
+
+
 def create_img_def():
     with open('../notejam-code/imagedefinitions.json', 'w') as file:
         img = [{
-            'name': variables.ecr_repo_name,
-            'imageUri': f'{variables.account_id}.dkr.ecr.{variables.region}.amazonaws.com/{variables.ecr_repo_name}'
+            'name': ecr_repo_name,
+            'imageUri': f'{variables.account_id}.dkr.ecr.{variables.region}.amazonaws.com/{ecr_repo_name}'
         }]
         json.dump(img, file)
 create_img_def()
@@ -93,7 +102,7 @@ class NotejamStack(cdk.Stack):
         codebuild_project = codebuild.PipelineProject(self, "CodeBuild Project", project_name=f"Notejam-{variables.stage}",
                                                       description="CodeBuild project to build Notejam images",
                                                       build_spec=build_spec, check_secrets_in_plain_text_env_variables=False,
-                                                      environment_variables=variables.buildspec_vars,
+                                                      environment_variables=buildspec_vars,
                                                       environment=codebuild.BuildEnvironment(privileged=True,
                                                                                              build_image=codebuild.LinuxBuildImage.STANDARD_5_0)
                                                                                              ,
@@ -112,7 +121,7 @@ class NotejamStack(cdk.Stack):
 
         # ECR Repository
         ecr_repository = ecr.Repository(self, 'ECR Repository',
-                                        repository_name=variables.ecr_repo_name)
+                                        repository_name=ecr_repo_name)
 
         # Networking
         vpc = ec2.Vpc(self, "VPC")
@@ -128,20 +137,13 @@ class NotejamStack(cdk.Stack):
 
 
         # Aurora Cluster
-        # psql_subnet_group = rds.SubnetGroup(
-        #     self,
-        #     'PostgreSQL Subnet Group',
-        #     description='Created for Notejam project',
-        #     vpc=vpc,
-        #     subnet_group_name='notejam' + variables.stage
-        # )
 
         psql_subnet_group = rds.CfnDBSubnetGroup(
             self,
             'DB Subnet Group',
             db_subnet_group_description='test',
             subnet_ids=private_subnets,
-            db_subnet_group_name='notejamdev'
+            db_subnet_group_name='notejam' + variables.stage.lower()
         )
         psql_cluster = rds.CfnDBCluster(
             self,
@@ -154,7 +156,7 @@ class NotejamStack(cdk.Stack):
             master_username=variables.user,
             master_user_password=password,
             port=5432,
-            db_subnet_group_name='notejamdev',
+            db_subnet_group_name='notejam' + variables.stage.lower(),
             vpc_security_group_ids=[psql_sec_group.security_group_id]
             )
         cluster_endpoint = core.CfnOutput(self, 'Aurora Cluster Endpoint',
@@ -181,12 +183,12 @@ class NotejamStack(cdk.Stack):
         task_definition_1 = ecs.TaskDefinition(self, 'Task Definition',
                 compatibility=ecs.Compatibility('FARGATE'), cpu='256',
                 memory_mib='512')
-        container = task_definition_1.add_container(f'{variables.ecr_repo_name}'
+        container = task_definition_1.add_container(f'{ecr_repo_name}'
                 , image=ecs.ContainerImage.from_ecr_repository(ecr_repository),
                 environment={'ENVIRONMENT': 'production',
                 'SQLALCHEMY_DATABASE_URI': f'postgresql://{variables.user}:{password}@{psql_cluster.attr_endpoint_address}/notejam'
                 },
-                logging=ecs.LogDriver.aws_logs(stream_prefix='notejamcontainer'
+                logging=ecs.LogDriver.aws_logs(stream_prefix='notejam' + variables.stage.lower() + 'container'
                 ))
 
         container.add_port_mappings(ecs.PortMapping(container_port=5000,
@@ -203,7 +205,7 @@ class NotejamStack(cdk.Stack):
             security_groups=[container_sec_group]
             )
 
-        alb = lb.ApplicationLoadBalancer(self, 'Notejam ALB',
+        alb = lb.ApplicationLoadBalancer(self, 'notejam ALB',
                                          internet_facing=True,
                                          load_balancer_name='notejam', vpc=vpc,
                                          security_group=alb_sec_group)
@@ -214,7 +216,7 @@ class NotejamStack(cdk.Stack):
         http_listener = alb.add_listener('HTTP Listener', open=True, port=80)
 
         http_listener.add_targets('ECS', port=80,
-                                  targets=[service.load_balancer_target(container_name='notejamdev'
+                                  targets=[service.load_balancer_target(container_name='notejam' + variables.stage.lower()
                                   , container_port=5000)],
                                   health_check=lb.HealthCheck(healthy_http_codes='200,302'
                                   ))

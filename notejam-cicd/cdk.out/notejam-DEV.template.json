@@ -1040,7 +1040,7 @@
         "DBSubnetGroupName": "notejamdev",
         "EngineMode": "serverless",
         "MasterUsername": "postgres",
-        "MasterUserPassword": "D3O92IN8RF4Y",
+        "MasterUserPassword": "DSZIGA2QGONK",
         "Port": 5432,
         "VpcSecurityGroupIds": [
           {
@@ -1141,7 +1141,7 @@
                   "Fn::Join": [
                     "",
                     [
-                      "postgresql://postgres:D3O92IN8RF4Y@",
+                      "postgresql://postgres:DSZIGA2QGONK@",
                       {
                         "Fn::GetAtt": [
                           "PostgreSQLCluster",
@@ -1210,7 +1210,7 @@
                 "awslogs-group": {
                   "Ref": "TaskDefinitionnotejamdevLogGroupB43E6932"
                 },
-                "awslogs-stream-prefix": "notejamcontainer",
+                "awslogs-stream-prefix": "notejamdevcontainer",
                 "awslogs-region": "eu-west-1"
               }
             },
@@ -1346,7 +1346,7 @@
             "ContainerName": "notejamdev",
             "ContainerPort": 5000,
             "TargetGroupArn": {
-              "Ref": "NotejamALBHTTPListenerECSGroup9487A8E7"
+              "Ref": "notejamALBHTTPListenerECSGroup0CF5EBD5"
             }
           }
         ],
@@ -1380,14 +1380,14 @@
         }
       },
       "DependsOn": [
-        "NotejamALBHTTPListenerECSGroup9487A8E7",
-        "NotejamALBHTTPListenerD75D1846"
+        "notejamALBHTTPListenerECSGroup0CF5EBD5",
+        "notejamALBHTTPListenerFB9BC5A7"
       ],
       "Metadata": {
         "aws:cdk:path": "notejam-DEV/Service/Service"
       }
     },
-    "NotejamALBE2229524": {
+    "notejamALB0ABF49E5": {
       "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
       "Properties": {
         "LoadBalancerAttributes": [
@@ -1425,31 +1425,31 @@
         "VPCPublicSubnet3DefaultRouteA0D29D46"
       ],
       "Metadata": {
-        "aws:cdk:path": "notejam-DEV/Notejam ALB/Resource"
+        "aws:cdk:path": "notejam-DEV/notejam ALB/Resource"
       }
     },
-    "NotejamALBHTTPListenerD75D1846": {
+    "notejamALBHTTPListenerFB9BC5A7": {
       "Type": "AWS::ElasticLoadBalancingV2::Listener",
       "Properties": {
         "DefaultActions": [
           {
             "TargetGroupArn": {
-              "Ref": "NotejamALBHTTPListenerECSGroup9487A8E7"
+              "Ref": "notejamALBHTTPListenerECSGroup0CF5EBD5"
             },
             "Type": "forward"
           }
         ],
         "LoadBalancerArn": {
-          "Ref": "NotejamALBE2229524"
+          "Ref": "notejamALB0ABF49E5"
         },
         "Port": 80,
         "Protocol": "HTTP"
       },
       "Metadata": {
-        "aws:cdk:path": "notejam-DEV/Notejam ALB/HTTP Listener/Resource"
+        "aws:cdk:path": "notejam-DEV/notejam ALB/HTTP Listener/Resource"
       }
     },
-    "NotejamALBHTTPListenerECSGroup9487A8E7": {
+    "notejamALBHTTPListenerECSGroup0CF5EBD5": {
       "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
       "Properties": {
         "Matcher": {
@@ -1463,7 +1463,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "notejam-DEV/Notejam ALB/HTTP Listener/ECSGroup/Resource"
+        "aws:cdk:path": "notejam-DEV/notejam ALB/HTTP Listener/ECSGroup/Resource"
       }
     },
     "RepositorynotejamDEVPipeline18A9F00DEventRuleA487D624": {
@@ -2257,7 +2257,7 @@
     "DNS": {
       "Value": {
         "Fn::GetAtt": [
-          "NotejamALBE2229524",
+          "notejamALB0ABF49E5",
           "DNSName"
         ]
       },
