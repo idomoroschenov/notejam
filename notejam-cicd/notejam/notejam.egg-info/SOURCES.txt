@@ -1,6 +1,0 @@
-setup.py
-notejam/notejam.egg-info/PKG-INFO
-notejam/notejam.egg-info/SOURCES.txt
-notejam/notejam.egg-info/dependency_links.txt
-notejam/notejam.egg-info/requires.txt
-notejam/notejam.egg-info/top_level.txt
