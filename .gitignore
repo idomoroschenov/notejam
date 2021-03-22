@@ -4,3 +4,4 @@ notejam-cicd/notejam/__pycache__/
 notejam-cicd/notejam/notejam.egg*
 notejam-code/.*
 *.pyc
+*imagedefinitions.json
