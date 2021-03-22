@@ -11,8 +11,6 @@ from aws_cdk import aws_iam as iam
 from aws_cdk import aws_ec2 as ec2
 from aws_cdk import aws_elasticloadbalancingv2 as lb
 from aws_cdk import aws_codepipeline_actions as codepipeline_actions
-from aws_cdk import aws_s3_assets as s3_assets
-import os
 import variables
 import random
 import string

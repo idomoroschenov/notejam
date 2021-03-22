@@ -11,9 +11,6 @@ from notejam.codecommit_stack import CodeCommitStack
 from notejam import variables
 
 
-import datetime
-
-
 env = cdk.Environment(account=variables.account_id, region=variables.region)
 
 app = cdk.App()
