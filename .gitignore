@@ -1,6 +1,7 @@
 /notejam-cicd/.*
 /notejam-cicd/cdk.out/
 /notejam-cicd/notejam/__pycache__/
+/notejam-cicd/cdk.context.json
 /notejam-cicd/notejam/notejam.egg*
 /notejam-code/.*
 *.pyc
